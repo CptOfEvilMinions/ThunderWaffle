@@ -1,0 +1,7 @@
+*.pyc
+*.retry
+.DS_Store
+env/
+group_vars/all.yml
+group_vars/bro.yml
+group_vars/docker.yml

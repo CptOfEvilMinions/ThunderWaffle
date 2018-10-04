@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  splunk:
+    image: splunk:7.2
+    restart: unless-stopped
+    ports:
+      - 1514:1514
+      - 8088:8088
+      - 8089:8089
+      - 8191:8191
+      - 9997:9997
+      - 8000:8000
+      - 5000:5000
+      - 5001:5001
+      - 5002:5002
+      - 5003:5003
+      - 5004:5004
+      - 5005:5005
+    enviornment:
+      SPLUNK_START_ARGS="--accept-license --seed-passwd changeme"
+    volumes:
+      - /srv/splunk/etc:/opt/splunk/etc
+      - /srv/splunk/var:/opt/splunk/var
+

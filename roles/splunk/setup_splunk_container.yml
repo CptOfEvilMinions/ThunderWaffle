@@ -1,0 +1,37 @@
+####################################################################
+# Create directories
+####################################################################
+- name: Create Splunk Docker directory
+  file:
+    path: '{{ docker_path }}/splunk'
+    state: directory
+    owner: root
+    group: root
+    mode: 0600
+
+- name: Create Splunk Docker build directory
+  file:
+    path: '{{ docker_path }}/splunk/build'
+    state: directory
+    owner: root
+    group: root
+    mode: 0600
+
+- name: Copy Docker files over
+
+- name: Build Docker container
+
+- name: Spin up Docker container
+
+- name: Remove build directory
+
+
+####################################################################
+#  Slack notification
+####################################################################
+- name: Send slack notification when done
+  slack:
+    token: "{{ slack_token }}"
+    msg: '{{ ansible_nodename }}:{{ ansible_default_ipv4.address }} - Setup Splunk - {{ ansible_nodename }}'
+    channel: "{{ slack_channel }}"
+  when: slack_token != None
