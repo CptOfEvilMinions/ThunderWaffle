@@ -1,0 +1,20 @@
+# Source: https://answers.splunk.com/answers/59662/is-there-a-systemd-unit-file-for-splunk.html
+[Unit]
+Description=Splunk Enterprise 6.5.0
+After=network.target
+Wants=network.target
+
+[Service]
+Type=forking
+RemainAfterExit=False
+User=splunk
+Group=splunk
+LimitNOFILE=65536
+ExecStart=/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --no-prompt
+ExecStop=/opt/splunkforwarder/bin/splunk stop
+PIDFile=/opt/splunkforwarder/var/run/splunk/splunkd.pid
+
+[Install]
+WantedBy=multi-user.target
+# If you want to use $(systemctl [start|stop|restart] splunk) instead of splunkd ...
+Alias=splunk.service

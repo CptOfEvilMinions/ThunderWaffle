@@ -25,7 +25,8 @@ Repo for my Master's Thesis
 ## Setup Splunk server on Docker
 0. mv group_vars/splunk.example group_vars/splunk.yml
 0. vim group_vars/splunk.yml and set:
-    1. 
+    1. splunk_forwarder_index
+    1. splunk_server_addr
 0. vim hosts.yml and under "[splunk]" set:
     1. ansible_host - Set to IP addr of remote host
 0. `ansible-playbook -i hosts.yml deploy_splunk.yml -u <username> -K`
@@ -64,3 +65,4 @@ Repo for my Master's Thesis
 * https://raw.githubusercontent.com/CptOfEvilMinions/GuardiansOfTheNetwork/master/Setup/roles/docker/setup_docker.yml
 * https://www.splunk.com/en_us/download
 * https://linoxide.com/linux-how-to/install-splunk-ubuntu/
+* https://answers.splunk.com/answers/59662/is-there-a-systemd-unit-file-for-splunk.html

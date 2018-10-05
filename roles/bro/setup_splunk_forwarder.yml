@@ -12,24 +12,25 @@
 
 - name: Copy splunk inputs.conf
   template:
-    src: splunk/forwarder/inputs.conf
+    src: conf/splunk/forwarder/inputs.conf
     dest: /opt/splunkforwarder/etc/system/local/inputs.conf
 
 - name: Copy splunk outputs.conf
   template:
-    src: splunk/forwarder/outputs.conf
+    src: conf/splunk/forwarder/outputs.conf
     dest: /opt/splunkforwarder/etc/system/local/outputs.conf
 
-# - name: Splunk create servie
-#   shell: ./splunk enable boot-start
-#   args:
-#     chdir: /opt/splunk/bin/
+- name: Copy Splunk Forwarder service
+  template:
+    src: conf/splunk/forwarder/splunkd.service
+    dest: /etc/systemd/system/splunkd.service    
 
 - name: Start Splunk forwarder
-  service:
-    name: 'splunk'
+  systemd:
+    name: 'splunkd'
     state: restarted
     enabled: yes
+    daemon_reload: yes
 
 ####################################################################
 #  Slack notification
