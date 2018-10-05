@@ -1,0 +1,5 @@
+- hosts: bro
+  become: yes
+  become_user: root
+  tasks:
+    - import_tasks: roles/bro/setup_bro.yml

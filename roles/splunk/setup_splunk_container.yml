@@ -18,10 +18,12 @@
     mode: 0600
 
 - name: Copy Docker files over
-
-- name: Build Docker container
+  copy:
+    src: conf/splunk/
+    dest: '{{ docker_path }}/splunk/build'
 
 - name: Spin up Docker container
+  docker_service:
 
 - name: Remove build directory
 

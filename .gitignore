@@ -5,3 +5,4 @@ env/
 group_vars/all.yml
 group_vars/bro.yml
 group_vars/docker.yml
+group_vars/splunk.yml

@@ -1,0 +1,42 @@
+####################################################################
+# Install/Setup Splunk Forwarder
+####################################################################
+- name: Copy Splunk Forwarder
+  copy:
+    src: files/splunk/splunkforwarder.deb
+    dest: /tmp/splunkforwarder.deb
+
+- name: Install Splunk from DEB
+  apt:
+    deb: /tmp/splunkforwarder.deb
+
+- name: Copy splunk inputs.conf
+  template:
+    src: splunk/forwarder/inputs.conf
+    dest: /opt/splunkforwarder/etc/system/local/inputs.conf
+
+- name: Copy splunk outputs.conf
+  template:
+    src: splunk/forwarder/outputs.conf
+    dest: /opt/splunkforwarder/etc/system/local/outputs.conf
+
+# - name: Splunk create servie
+#   shell: ./splunk enable boot-start
+#   args:
+#     chdir: /opt/splunk/bin/
+
+- name: Start Splunk forwarder
+  service:
+    name: 'splunk'
+    state: restarted
+    enabled: yes
+
+####################################################################
+#  Slack notification
+####################################################################
+- name: Send slack notification when done
+  slack:
+    token: "{{ slack_token }}"
+    msg: '{{ ansible_nodename }}:{{ ansible_default_ipv4.address }} - Finished setting up Splunk forwarder on BRO {{ ansible_nodename }}'
+    channel: "{{ slack_channel }}"
+  when: slack_token != None

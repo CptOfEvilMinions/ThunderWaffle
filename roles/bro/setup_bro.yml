@@ -1,0 +1,146 @@
+####################################################################
+# Install Bro dependencies
+####################################################################
+- name: Install Bro dependencies
+  package:
+    name: '{{ item }}'
+    state: latest
+  with_items:
+    - cmake 
+    - make 
+    - gcc 
+    - g++ 
+    - flex 
+    - bison 
+    - libpcap-dev 
+    - libssl-dev 
+    - python-dev 
+    - swig 
+    - zlib1g-dev
+
+####################################################################
+# Git Bro repo
+####################################################################
+- name: Create Bro directory
+  file:
+    path: /opt/bro
+    state: directory
+
+- name: Git Bro repo
+  git:
+    repo: 'git://git.bro.org/bro'
+    recursive: yes
+    dest: /opt/bro
+
+####################################################################
+# Compile Bro 
+####################################################################
+- name: Check if Bro directory exists
+  stat:
+    path: /usr/local/bro/bin/bro
+  register: stat_bro
+
+- name: ./configure Bro
+  shell: './configure'
+  args:
+    chdir: /opt/bro
+  when: stat_bro.stat.exists == False
+
+- name: make Bro
+  make:
+    chdir: /opt/bro
+  when: stat_bro.stat.exists == False
+    
+- name: make install Bro
+  make:
+    chdir: /opt/bro
+    target: install
+  when: stat_bro.stat.exists == False
+
+- name: Install bro-aux utils
+  package:
+    name: '{{ item }}'
+    state: latest
+  with_items:
+    - bro-aux
+
+####################################################################
+# Set interface to promiscuous mode
+####################################################################
+- name: Set interface to up
+  shell: ip link set {{ bro_promiscuous_interface }} up
+
+- name: Set interface to promiscuous mode
+  shell: ip link set {{ bro_promiscuous_interface }} promisc on
+
+- name: Set interface to promiscuous mode ON boot
+  cron:
+    name: "promisc_{{ bro_promiscuous_interface }}"
+    special_time: reboot
+    job: "ip link set {{ bro_promiscuous_interface }} promisc on"
+
+- name: Set interface to promiscuous mode ON boot
+  cron:
+    name: "link_up_{{ bro_promiscuous_interface }}"
+    special_time: reboot
+    job: "ip link set {{ bro_promiscuous_interface }} up"
+
+- name: Enable CRON service
+  service:
+    name: 'cron'
+    state: started
+    enabled: yes
+
+####################################################################
+# Configure Bro
+####################################################################
+- name: 'Copy networks.cfg'
+  template:
+    src: conf/bro/networks.cfg
+    dest: /usr/local/bro/etc/networks.cfg
+
+- name: 'Copy node.cfg'
+  template:
+    src: conf/bro/node.cfg
+    dest: /usr/local/bro/etc/node.cfg
+
+- name: 'Copy broctl.cfg'
+  template:
+    src: conf/bro/broctl.cfg
+    dest: /usr/local/bro/etc/broctl.cfg
+
+####################################################################
+# Set Bro to log in JSON format
+####################################################################
+- name: Set Bro to log in JSON format
+  lineinfile:
+    path: /usr/local/bro/share/bro/base/frameworks/logging/writers/ascii.bro
+    regexp: '^const use_json = F &redef;'
+    line: 'const use_json = T &redef;'
+
+####################################################################
+# Start Bro 
+# Credit for service file: https://gist.github.com/JustinAzoff/db71b901b1070a88f2d72738bf212749
+####################################################################
+- name: Copy SystemD module
+  template:
+    src: conf/bro/bro.service
+    dest: /etc/systemd/system/bro.service
+    owner: root
+    group: root
+
+- name: Start Bro service
+  service:
+    name: bro
+    state: restarted
+    enabled: yes
+
+####################################################################
+#  Slack notification
+####################################################################
+- name: Send slack notification when done
+  slack:
+    token: "{{ slack_token }}"
+    msg: '{{ ansible_nodename }}:{{ ansible_default_ipv4.address }} - Finished setting up Bro on {{ ansible_nodename }}'
+    channel: "{{ slack_channel }}"
+  when: slack_token != None
