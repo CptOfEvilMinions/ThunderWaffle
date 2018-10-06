@@ -2,4 +2,5 @@
   become: yes
   become_user: root
   tasks:
-    - import_tasks: roles/init.yml
+    - include_vars: group_vars/docker.yml
+    - import_tasks: roles/splunk/setup_splunk_container.yml
