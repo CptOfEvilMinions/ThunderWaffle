@@ -9,19 +9,6 @@
     group: root
     mode: 0600
 
-# - name: Create Splunk Docker build directory
-#   file:
-#     path: '{{ docker_path }}/splunk/build'
-#     state: directory
-#     owner: root
-#     group: root
-#     mode: 0600
-
-# - name: Copy Docker files over
-#   copy:
-#     src: conf/splunk/
-#     dest: '{{ docker_path }}/splunk/build'
-
 - name: Spin up Docker container
   docker_container:
     name: splunk
@@ -31,24 +18,12 @@
     ports:
       - 8000:8000
       - 9997:9997
-      - 1514:1514
-      - 8088:8088
-      - 8089:8089
-      - 8191:8191
-      - 5000:5000
-      - 5001:5001
-      - 5002:5002
     env:
       SPLUNK_START_ARGS=--accept-license
       SPLUNK_PASSWORD=changeme
     volumes:
       - '{{ docker_path }}/splunk/etc:/opt/splunk/etc'
       - '{{ docker_path }}/splunk/var:/opt/splunk/var'
-
-# - name: Remove build directory
-#   file:
-#     path: '{{ docker_path }}/splunk/build'
-#     state: absent
 
 ####################################################################
 #  Slack notification

@@ -25,6 +25,15 @@
     src: conf/splunk/forwarder/splunkd.service
     dest: /etc/systemd/system/splunkd.service    
 
+- name: Disable HTTP server for forwarder
+  lineinfile:
+    path: /opt/splunkforwarder/etc/system/local/server.conf
+    line: '{{ item }}'
+  with_items:
+    - "# Disable management port to prevent remote (or local) config."
+    - "[httpServer]"
+    - "disableDefaultPort = true"
+
 - name: Start Splunk forwarder
   systemd:
     name: 'splunkd'
