@@ -16,5 +16,3 @@ PIDFile=/opt/splunkforwarder/var/run/splunk/splunkd.pid
 
 [Install]
 WantedBy=multi-user.target
-# If you want to use $(systemctl [start|stop|restart] splunk) instead of splunkd ...
-Alias=splunk.service

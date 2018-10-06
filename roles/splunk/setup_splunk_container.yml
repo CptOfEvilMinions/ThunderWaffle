@@ -9,21 +9,67 @@
     group: root
     mode: 0600
 
-- name: Spin up Docker container
+- name: Create Splunk Docker directory
+  file:
+    path: '{{ docker_path }}/splunk/certs'
+    state: directory
+    owner: root
+    group: root
+    mode: 0600
+
+####################################################################
+# Spin up Splunk Enterprise
+####################################################################
+- name: Spin up Splunk Docker container
   docker_container:
     name: splunk
     image: splunk/splunk:7.2
     state: started
     restart_policy: unless-stopped
-    ports:
-      - 8000:8000
+    published_ports:
       - 9997:9997
     env:
       SPLUNK_START_ARGS=--accept-license
-      SPLUNK_PASSWORD=changeme
+      SPLUNK_PASSWORD={{ splunk_server_password }}
     volumes:
       - '{{ docker_path }}/splunk/etc:/opt/splunk/etc'
       - '{{ docker_path }}/splunk/var:/opt/splunk/var'
+
+####################################################################
+# Spin up NGINX for HTTPS
+####################################################################
+- name: Stat DH key
+  stat:
+    path: '{{ docker_path }}/splunk/certs/dhparam.pem'
+  register: stat_dhparam
+
+- name: Generate DH key
+  shell: openssl dhparam -out {{ docker_path }}/splunk/certs/dhparam.pem 2048
+  when: stat_dhparam.stat.exists == False
+
+- name: Generate self signed cert
+  shell: openssl req -new -nodes -x509 -days 3650 -subj "/C={{ cert_country }}/ST={{ cert_state }}/L={{ cert_local }}/O={{ cert_org }}/CN={{ hostname }}.{{ base_domain }}" -keyout {{ docker_path }}/splunk/certs/nginx-selfsigned.key -out {{ docker_path }}/splunk/certs/nginx-selfsigned.crt
+  when: stat_dhparam.stat.exists == False
+
+- name: Copy NGINX conf
+  template:
+    src: conf/nginx/nginx_splunk.conf
+    dest: '{{ docker_path }}/splunk/nginx_splunk.conf'
+
+- name: Spin up NGINX Docker container
+  docker_container:
+    name: nginx
+    image: nginx:latest
+    state: started
+    restart_policy: unless-stopped
+    published_ports:
+      - 80:80
+      - 443:443
+    links:
+      - splunk
+    volumes:
+      - '{{ docker_path }}/splunk/certs:/etc/nginx/certs:ro'
+      - '{{ docker_path }}/splunk/nginx_splunk.conf:/etc/nginx/conf.d/default.conf:ro'
 
 ####################################################################
 #  Slack notification
@@ -31,6 +77,6 @@
 - name: Send slack notification when done
   slack:
     token: "{{ slack_token }}"
-    msg: '{{ ansible_nodename }}:{{ ansible_default_ipv4.address }} - Setup Splunk - {{ ansible_nodename }}'
+    msg: '{{ ansible_nodename }}:{{ ansible_default_ipv4.address }} - Setup Splunk and NGINX - {{ ansible_nodename }}'
     channel: "{{ slack_channel }}"
   when: slack_token != None

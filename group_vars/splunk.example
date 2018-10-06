@@ -2,4 +2,5 @@
 splunk_forwarder_index: bro
 
 ################################# Splunk server #################################
-splunk_server_addr: 10.150.100.102
+splunk_server_addr:
+splunk_server_password: 

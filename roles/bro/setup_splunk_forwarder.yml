@@ -22,8 +22,15 @@
 
 - name: Copy Splunk Forwarder service
   template:
-    src: conf/splunk/forwarder/splunkd.service
-    dest: /etc/systemd/system/splunkd.service    
+    src: conf/splunk/forwarder/splunk-forwarder.service
+    dest: /etc/systemd/system/splunk-forwarder.service    
+
+- name: Start Splunk forwarder
+  systemd:
+    name: 'splunk-forwarder'
+    state: started
+    enabled: yes
+    daemon_reload: yes
 
 - name: Disable HTTP server for forwarder
   lineinfile:
@@ -36,10 +43,11 @@
 
 - name: Start Splunk forwarder
   systemd:
-    name: 'splunkd'
+    name: 'splunk-forwarder'
     state: restarted
     enabled: yes
     daemon_reload: yes
+   
 
 ####################################################################
 #  Slack notification

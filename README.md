@@ -2,13 +2,16 @@
 Repo for my Master's Thesis
 
 # Setup infrastructure
-## Setup Docker swarm
+## Init setup
 0. mv group_vars/all.example group_vars/all.yml
 0. vim group_vars/all.yml and set:
     1. hostname - Set hostname for box
     1. base_domain - Set the domain for the box
+    1. Cert generation values
     1. slack_channel - OPTIONAL - Set to Slack channel
     1. slack_token - OPTIONAL - Set to Slack channel token
+
+## Setup Docker swarm
 0. mv group_vars/docker.example group_vars/docker.yml
 0. vim group_vars/docker.yml and set:
     1. docker_path - Path for docker to store persistent data
@@ -17,6 +20,7 @@ Repo for my Master's Thesis
     1. ansible_host - Set to IP addr of remote host
 0. `ssh-copy-id <username>@<docker host>`
 0. `ansible-playbook -i hosts.yml deploy_docker.yml -u <username> -K`
+    1. `-K` will prompt for user's password
 
 ### Connect to Docker Swarm on Linux/MacOS
 0. `docker-machine create --driver generic --generic-ip-address=<Docker IP addr> --generic-ssh-key ~/.ssh/id_rsa --generic-ssh-user=<username> <hostname>`
@@ -25,15 +29,16 @@ Repo for my Master's Thesis
 ## Setup Splunk server on Docker
 0. mv group_vars/splunk.example group_vars/splunk.yml
 0. vim group_vars/splunk.yml and set:
-    1. splunk_forwarder_index
-    1. splunk_server_addr
+    1. splunk_forwarder_index - Index to store bro logs
+    1. splunk_server_addr - IP addr of Splunk
+    1. splunk_server_password - Password for Splunk server webGUI login
 0. vim hosts.yml and under "[splunk]" set:
     1. ansible_host - Set to IP addr of remote host
 0. `ansible-playbook -i hosts.yml deploy_splunk.yml -u <username> -K`
-0. Browse "http://<Docker IP addr>:8000" and login
+0. Browse `https://<Docker IP addr>` and login
     1. Docker container runs an Ansible script which takes about ~2mins to run
     1. User: admin
-    1. Pass: changeme
+    1. Pass: `<splunk_server_password>`
 
 ### Change password
 0. Select the "Settings" tab at the top then "Acess Control" under "User and authentication"
@@ -43,13 +48,6 @@ Repo for my Master's Thesis
     1. Enter new password
     1. Select "save"
 
-### Adding Splunk input 
-NOT required unless default port was changed
-0. Select "Settings" then "Forwarding and receiving" under "Data"
-0. Select "Configure receiving" under "Receive data"
-0. Select "New Receiving port"
-    1. Enter port number
-
 ### Create BRO index
 0. Select "Settings" then "Indexes" under "Data"
 0. Select "New index" in top right
@@ -57,7 +55,6 @@ NOT required unless default port was changed
 
 ### Adding Bro Add-on
 0. https://splunkbase.splunk.com/app/1617/
-
 
 ## Setup Bro with splunk forwarder
 ### Setup Splunk
@@ -71,6 +68,7 @@ NOT required unless default port was changed
     1. bro_management_interface - Interface to access Bro box via SSH
     1. bro_promiscuous_interface - Interface to monitor network traffic
     1. bro_local_network - Local network that BRO is monitoring
+        2. Example: 192.168.1.0/24
     1. bro_mail_to - Location to send e-mails
 0. vim hosts.yml and under "[bro]" set:
     1. ansible_host - Set to IP addr of remote host

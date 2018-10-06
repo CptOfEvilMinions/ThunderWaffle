@@ -1,0 +1,15 @@
+########################### General ###########################
+base_domain: 
+timezone: America/New_York
+hostname: 
+
+######################### Cert generation #########################
+cert_country: 
+cert_state: 
+cert_local: 
+cert_org: 
+
+########################### Slack ###########################
+slack_channel: 
+slack_token:
+
