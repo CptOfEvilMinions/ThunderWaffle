@@ -1,0 +1,48 @@
+####################################################################
+# Create directories
+####################################################################
+- name: Create Caldera Docker directory
+  file:
+    path: '{{ docker_path }}/caldera'
+    state: directory
+    owner: root
+    group: root
+    mode: 0600
+
+- name: Create Caldera build directory
+  file:
+    path: '{{ docker_path }}/caldera/build'
+    state: directory
+    owner: root
+    group: root
+    mode: 0600
+
+####################################################################
+# Spin up Caldera 
+####################################################################
+- name: Download Caldera repo
+  copy:
+    src: roles/caldera/{{ item }}
+    dest: '{{ docker_path }}/caldera/build/{{ item }}'
+  with_items:
+    - 'Dockerfile'
+    - 'docker-compose.yml'
+
+- name: Build container
+  docker_image:
+    path: '{{ docker_path }}/caldera/build'
+    name: caldera
+
+- name: Spin up Cadlera
+  docker_service:
+    project_src: '{{ docker_path }}/caldera/build'
+
+####################################################################
+#  Slack notification
+####################################################################
+- name: Send slack notification when done
+  slack:
+    token: "{{ slack_token }}"
+    msg: '{{ ansible_nodename }}:{{ ansible_default_ipv4.address }} - Setup Caldera - {{ ansible_nodename }}'
+    channel: "{{ slack_channel }}"
+  when: slack_token != None

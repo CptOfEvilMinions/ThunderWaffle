@@ -1,0 +1,16 @@
+version: '3.4'
+services:
+  db:
+    image: mongo:3.6.8
+    volumes:
+      - caldera-mongo:/data/db
+    command: 'mongod --bind_ip 0.0.0.0 --replSet caldera'
+  app:
+    build: .
+    ports:
+      - 8888:8888
+    links:
+      - db:mongo
+
+volumes:
+  caldera-mongo:
