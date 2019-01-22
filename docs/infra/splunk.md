@@ -2,33 +2,35 @@
 
 ## Setup Splunk server on Docker
 
-1. `mv group_vars/splunk.example group_vars/splunk.yml`
-1. `vim group_vars/splunk.yml` and set:
-    1. `splunk_forwarder_index` - Index to store bro logs
-    1. `splunk_server_addr` - IP addr of Splunk
-    1. `splunk_server_password` - Password for Splunk server webGUI login
 1. vim hosts.yml and under "[splunk]" set:
     1. ansible_host - Set to IP addr of remote host
 1. `ansible-playbook -i hosts.yml deploy_splunk.yml -u <username> -K`
 1. Browse `https://<Docker IP addr>` and login
     1. Docker container runs an Ansible script which takes about ~2mins to run
     1. User: admin
-    1. Pass: `<splunk_server_password>`
+    1. Pass: changeme
+    1. ![Docker ps - Splunk](../../.img/splunk-login.png)
+1. `docker ps`
+1. ![Docker ps - Splunk](../../.img/docker-ps.png)
 
 ### Change password
 
-1. Select the "Settings" tab at the top then "Acess Control" under "User and authentication"
+1. Select the "Settings" tab at the top then select "Acess Control" under "User and authentication"
 1. Select "Users"
+1. ![Docker ps - Splunk](../../.img/splunk-users.png)
 1. Select "Edit" under "Actions" for admin user
     1. Enter old password
     1. Enter new password
     1. Select "save"
+1. ![Docker ps - Splunk](../../.img/splunk-passwd.png)
 
 ### Create BRO index
 
 1. Select "Settings" then "Indexes" under "Data"
 1. Select "New index" in top right
-1. Enter "bro" for Index name
+    1. Enter `bro` for Index name
+    1. Enter `10` for max size of entire index
+    1. ![Docker ps - Splunk](../../.img/splunk-index.png)
 
 ### Adding Bro Add-on
 

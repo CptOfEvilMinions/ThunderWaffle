@@ -22,7 +22,7 @@
 ####################################################################
 - name: Spin up Splunk Docker container
   docker_container:
-    name: splunk
+    name: thunderwaffle-splunk
     image: splunk/splunk:7.2
     state: started
     restart_policy: unless-stopped
@@ -30,7 +30,7 @@
       - 9997:9997
     env:
       SPLUNK_START_ARGS=--accept-license
-      SPLUNK_PASSWORD={{ splunk_server_password }}
+      SPLUNK_PASSWORD=changeme
     volumes:
       - '{{ docker_path }}/splunk/etc:/opt/splunk/etc'
       - '{{ docker_path }}/splunk/var:/opt/splunk/var'
@@ -53,12 +53,12 @@
 
 - name: Copy NGINX conf
   template:
-    src: conf/nginx/nginx_splunk.conf
+    src: conf/splunk/nginx_splunk.conf
     dest: '{{ docker_path }}/splunk/nginx_splunk.conf'
 
 - name: Spin up NGINX Docker container
   docker_container:
-    name: nginx
+    name: thunderwaffle-nginx
     image: nginx:latest
     state: started
     restart_policy: unless-stopped
@@ -66,7 +66,7 @@
       - 80:80
       - 443:443
     links:
-      - splunk
+      - thunderwaffle-splunk
     volumes:
       - '{{ docker_path }}/splunk/certs:/etc/nginx/certs:ro'
       - '{{ docker_path }}/splunk/nginx_splunk.conf:/etc/nginx/conf.d/default.conf:ro'

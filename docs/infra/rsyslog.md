@@ -2,6 +2,12 @@
 
 ## Install/Setup Rsyslog
 
+1. `mv group_vars/logging.example group_vars/logging.yml`
+1. `vim group_vars/splunk.yml` and set:
+    1. `rsyslog_port` - Port for Rsyslog to ingest logs on
+    1. `rsyslog_tls` - Enable TLS - On by default
+1. vim hosts.yml and under "[splunk]" set:
+    1. ansible_host - Set to IP addr of remote host
 1. `ansible-playbook -i hosts.yml deploy_rsyslog.yml -u <username> -K`
     1. `-K` will prompt for user's password
 

@@ -1,4 +1,4 @@
-- hosts: docker
+- hosts: splunk
   become: yes
   become_user: root
   tasks:
