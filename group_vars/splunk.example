@@ -1,6 +1,0 @@
-################################# Splunk forwarder #################################
-splunk_forwarder_index: bro
-
-################################# Splunk server #################################
-splunk_server_addr:
-splunk_server_password: 

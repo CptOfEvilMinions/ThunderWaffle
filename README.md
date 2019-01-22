@@ -4,7 +4,7 @@ Repo for my Master's Thesis
 
 ## Setup infrastructure
 
-1. [Setup infrastructure](docs/infrastructure.md)
+1. [Setup Infrasructure](docs/infrastructure.md)
 
 ## Network threat hunting matrix
 
