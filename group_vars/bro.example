@@ -1,6 +1,0 @@
-######################### Bro setup #########################
-bro_management_interface: 
-bro_promiscuous_interface: 
-bro_local_network:
-bro_mail_to: 
-bro_path: /usr/local/bro

@@ -18,6 +18,7 @@
     - rsyslog
     - rsyslog-relp
     - rsyslog-mmjsonparse
+    - rsyslog-mmrm1stspace
 
 - name: Copy Rsyslog.conf
   template:

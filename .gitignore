@@ -3,7 +3,6 @@
 .DS_Store
 env/
 group_vars/all.yml
-group_vars/bro.yml
+group_vars/logging.yml
 group_vars/docker.yml
-group_vars/splunk.yml
 files/splunk/splunkforwarder.deb
