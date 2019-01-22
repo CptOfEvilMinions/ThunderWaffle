@@ -20,7 +20,6 @@
 ## TO do list
 
 * Add Caldera container
-* Add Rsyslog
 
 ## Supported OSes
 

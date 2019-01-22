@@ -1,0 +1,24 @@
+version: '2.2'
+services:
+  splunk:
+    image: splunk/splunk:7.2
+    container_name: thunderwaffle-splunk
+    restart: unless-stopped
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=changeme
+    volumes:
+      - '{{ docker_path }}/splunk/etc:/opt/splunk/etc'
+      - '{{ docker_path }}/splunk/var:/opt/splunk/var'
+  nginx:
+    image: nginx:latest
+    container_name: thunderwaffle-nginx
+    restart: unless-stopped
+    depends_on:
+      - splunk
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - '{{ docker_path }}/splunk/certs:/etc/nginx/certs:ro'
+      - '{{ docker_path }}/splunk/nginx_splunk.conf:/etc/nginx/conf.d/default.conf:ro'

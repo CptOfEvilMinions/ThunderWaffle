@@ -1,7 +1,7 @@
 ####################################################################
-# Install Bro dependencies
+# Install sofrware 
 ####################################################################
-- name: Install Bro dependencies
+- name: Install dependencies for Bro
   package:
     name: '{{ item }}'
     state: latest
@@ -19,104 +19,155 @@
     - zlib1g-dev
 
 ####################################################################
-# Git Bro repo
+# Download Zeek source code
 ####################################################################
-- name: Create Bro directory
-  file:
-    path: /opt/bro
-    state: directory
-
-- name: Git Bro repo
-  git:
-    repo: 'git://git.bro.org/bro'
-    recursive: yes
-    dest: /opt/bro
-
-####################################################################
-# Compile Bro 
-####################################################################
-- name: Check if Bro directory exists
+- name: Stat BRO/Zeek
   stat:
-    path: /usr/local/bro/bin/bro
-  register: stat_bro
+    path: '{{ bro_base }}/bin/bro'
+  register: bro_compile
 
-- name: ./configure Bro
-  shell: './configure'
+- name: Download Bro/Zeek source code
+  git:
+    repo: https://github.com/zeek/zeek
+    recursive: yes
+    dest: '/tmp/bro'
+  when: bro_compile.stat.exists == False
+
+####################################################################
+# Compile BRO/Zeek from source
+####################################################################
+- name: Debug msg
+  debug:
+    msg: 'WARNING - Compiling BRO from source can take up to 30mins'
+  when: bro_compile.stat.exists == False
+
+- name: Compile BRO/Zeek from source
+  shell: '{{ item }}'
   args:
-    chdir: /opt/bro
-  when: stat_bro.stat.exists == False
-
-- name: make Bro
-  make:
-    chdir: /opt/bro
-  when: stat_bro.stat.exists == False
-    
-- name: make install Bro
-  make:
-    chdir: /opt/bro
-    target: install
-  when: stat_bro.stat.exists == False
-
-- name: Install bro-aux utils
-  package:
-    name: '{{ item }}'
-    state: latest
+    chdir: '/tmp/bro'
   with_items:
-    - bro-aux
+    - './configure --prefix={{ bro_base }}/'
+    - 'make'
+    - 'make install'
+  when: bro_compile.stat.exists == False
 
 ####################################################################
-# Set interface to promiscuous mode
+# Create Bro user and set perms
 ####################################################################
-- name: Set interface to up
-  shell: ip link set {{ bro_promiscuous_interface }} up
+- name: Create Bro user
+  user:
+    name: '{{ bro_user }}'
+    shell: /usr/sbin/nologin
+    home: '{{ bro_base }}'
 
-- name: Set interface to promiscuous mode
-  shell: ip link set {{ bro_promiscuous_interface }} promisc on
+- name: 'setcap cap_net_raw,cap_net_admin=eip {{ bro_base }}/bin/bro'
+  capabilities:
+    path: '{{ bro_base }}/bin/bro'
+    capability: '{{ item }}'
+    state: present
+  with_items:
+    - 'cap_net_raw+eip'
+    - 'cap_net_admin+eip'
 
-- name: Set interface to promiscuous mode ON boot
-  cron:
-    name: "promisc_{{ bro_promiscuous_interface }}"
-    special_time: reboot
-    job: "ip link set {{ bro_promiscuous_interface }} promisc on"
+- name: Set Bro base dir perms
+  file:
+    path: '{{ bro_base }}'
+    owner: '{{ bro_user }}'
+    group: '{{ bro_user }}'
+    recurse: yes
 
-- name: Set interface to promiscuous mode ON boot
-  cron:
-    name: "link_up_{{ bro_promiscuous_interface }}"
-    special_time: reboot
-    job: "ip link set {{ bro_promiscuous_interface }} up"
-
-- name: Enable CRON service
-  service:
-    name: 'cron'
-    state: started
-    enabled: yes
+- name: Add BRO to system-wide $PATH
+  copy:
+    dest: /etc/profile.d/bro-path.sh
+    content: 'PATH=$PATH:{{ bro_base }}/bin'
 
 ####################################################################
 # Configure Bro
 ####################################################################
-- name: 'Copy networks.cfg'
+- name: 'Copy BRO configs'
   template:
-    src: conf/bro/networks.cfg
-    dest: /usr/local/bro/etc/networks.cfg
-
-- name: 'Copy node.cfg'
-  template:
-    src: conf/bro/node.cfg
-    dest: /usr/local/bro/etc/node.cfg
-
-- name: 'Copy broctl.cfg'
-  template:
-    src: conf/bro/broctl.cfg
-    dest: /usr/local/bro/etc/broctl.cfg
-
-####################################################################
-# Set Bro to log in JSON format
-####################################################################
-- name: Set Bro to log in JSON format
+    src: 'conf/bro/{{ item }}'
+    dest: '{{ bro_base }}/etc/{{ item }}'
+    owner: '{{ bro_user }}'
+    group: '{{ bro_user }}'
+  with_items:
+    - 'networks.cfg'
+    - 'node.cfg'
+  
+- name: Replace BRO e-mail
   lineinfile:
-    path: /usr/local/bro/share/bro/base/frameworks/logging/writers/ascii.bro
-    regexp: '^const use_json = F &redef;'
-    line: 'const use_json = T &redef;'
+    path: '{{ bro_base }}/etc/broctl.cfg'
+    regexp: '^MailTo ='
+    line: 'MailTo = {{ bro_mail_to }}'
+
+- name: Enable Bro logging in JSON format
+  lineinfile:
+    path: '{{ bro_base }}/share/bro/site/local.bro'
+    line: '{{ item }}'
+  with_items:
+    - '# Enable Bro logging in JSON format'
+    - 'redef LogAscii::json_timestamps = JSON::TS_ISO8601;'
+    - 'redef LogAscii::use_json = T;'
+
+- name: Create scripts directory for custom BRO scripts
+  file:
+    path: '{{ bro_base }}/share/bro/scripts'
+    state: directory
+    owner: '{{ bro_user }}'
+    group: '{{ bro_user }}'
+
+####################################################################
+# BRO scripts
+####################################################################
+- name: Enable BRO file extraction
+  lineinfile:
+    path: '{{ bro_base }}/share/bro/site/local.bro'
+    line: '{{ item }}'
+  with_items:
+    - '# BRO file extraction'
+    - '@load policy/frameworks/files/extract-all-files.bro'
+  when: bro_file_extraction == True
+
+- name: Enable Bro stats 
+  lineinfile:
+    path: '{{ bro_base }}/share/bro/site/local.bro'
+    line: '{{ item }}'
+  with_items:
+    - '# BRO stats'
+    - '@load policy/misc/stats.bro'
+  when: bro_stats == True
+
+- name: Copy custom BRO scripts
+  template:
+    src: "{{ item }}"
+    dest: '{{ bro_base }}/share/bro/scripts/{{ item | basename }}'
+    owner: root
+    group: bro
+  with_fileglob:
+    - 'conf/bro/scripts/*'
+  when: bro_custom_scripts == True
+
+- name: Add commnet for custom scripts 
+  lineinfile:
+    path: '{{ bro_base }}/share/bro/site/local.bro'
+    line: '# BRO custom scripts'
+  when: bro_custom_scripts == True
+
+- name: Enable BRO file extraction
+  lineinfile:
+    path: '{{ bro_base }}/share/bro/site/local.bro'
+    line: '@load scripts/{{ item | basename }}'
+  with_fileglob:
+    - 'conf/bro/scripts/*'
+  when: bro_custom_scripts == True
+
+####################################################################
+# BRO deploy
+####################################################################
+- name: Run Bro deploy
+  command: '{{ bro_base }}/bin/broctl deploy'
+  become: yes
+  become_user: '{{ bro_user }}'
 
 ####################################################################
 # Start Bro 
@@ -128,6 +179,7 @@
     dest: /etc/systemd/system/bro.service
     owner: root
     group: root
+    mode: 0400
 
 - name: Start Bro service
   service:

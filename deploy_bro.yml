@@ -2,6 +2,6 @@
   become: yes
   become_user: root
   tasks:
-    - include_vars: group_vars/splunk.yml
+    - include_vars: group_vars/logging.yml
     - import_tasks: roles/bro/setup_bro.yml
-    - import_tasks: roles/bro/setup_splunk_forwarder.yml
+    - import_tasks: roles/bro/setup_rsyslog_client.yml
