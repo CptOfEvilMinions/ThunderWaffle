@@ -18,4 +18,9 @@ Repo for my Master's Thesis
 
 * Ubuntu Server 18.04 64-bit
 
+## TO do list
+
+* Add Caldera container
+
+
 ## Resources/Sources

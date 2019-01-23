@@ -9,33 +9,35 @@
     group: root
     mode: 0600
 
-- name: Create Caldera build directory
-  file:
-    path: '{{ docker_path }}/caldera/build'
-    state: directory
-    owner: root
-    group: root
-    mode: 0600
-
 ####################################################################
 # Spin up Caldera 
 ####################################################################
 - name: Download Caldera repo
-  copy:
-    src: roles/caldera/{{ item }}
-    dest: '{{ docker_path }}/caldera/build/{{ item }}'
-  with_items:
-    - 'Dockerfile'
-    - 'docker-compose.yml'
+  git:
+    repo: 'https://github.com/mitre/caldera.git'
+    dest: '{{ docker_path }}/caldera'
 
 - name: Build container
   docker_image:
-    path: '{{ docker_path }}/caldera/build'
+    path: '{{ docker_path }}/caldera'
     name: caldera
+
+- name: stat docker-compose.yaml
+  stat: 
+    path: '{{ docker_path }}/caldera/docker-compose.yaml'
+  register: docker_stat
+
+- name: Move foo to bar
+  copy: 
+    src: '{{ docker_path }}/caldera/docker-compose.yaml'
+    dest: '{{ docker_path }}/caldera/docker-compose.yml'
+    remote_src: True
+  when: docker_stat.stat.exists
 
 - name: Spin up Cadlera
   docker_service:
-    project_src: '{{ docker_path }}/caldera/build'
+    project_src: '{{ docker_path }}/splunk'
+    project_name: 'calderastack'
 
 ####################################################################
 #  Slack notification

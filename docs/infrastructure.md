@@ -17,20 +17,6 @@
 1. [Setup Splunk](docs/infra/splunk.md)
 1. [Setup Bro/Zeek](docs/infra/zeek.md)
 
-## TO do list
-
-* Add Caldera container
-
 ## Supported OSes
 
 * Ubuntu Server 18.04 64-bit
-
-## Resources/Sources
-
-### Ansible
-
-* [Setting hostname with Ansible](http://derpturkey.com/setting-host-with-ansible-in-ubuntu/)
-
-### Bro
-
-* [Confiure Bro for Splunk](https://undercoverelephant.info/2018/02/07/configuring-bro-for-splunk/)

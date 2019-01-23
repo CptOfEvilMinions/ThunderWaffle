@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update -y
-RUN apt-get install python3-pip python3-dev git wget -y
+RUN apt-get install python3-pip python3-dev git wget ping -y
 
 RUN mkdir /opt/caldera
 RUN git clone https://github.com/mitre/caldera.git /opt/caldera
