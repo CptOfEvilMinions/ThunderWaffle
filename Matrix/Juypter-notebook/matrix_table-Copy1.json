@@ -1,0 +1,46 @@
+{
+    "recon and weaponization": {
+        "theme":"themes/recon_weapon.md",
+        "techniques":[]
+    },
+    "delivery": {
+        "theme":"themes/recon_weapon.md",
+        "techniques":[]
+    },
+    "initial access": {
+        "theme":"themes/intial_access.md",
+        "techniques":[
+            "zero_day_exploit.md"
+        ]
+    },
+    "command and control": {
+        "theme":"themes/command_n_control.md",
+        "techniques":[
+            "remote_admin_tools.md"
+        ]
+    },
+    "lateral movement": {
+        "theme":"themes/lateral_movement.md",
+        "techniques":[
+            "winrm.md"
+        ]
+    },
+    "actions on objective": {
+        "theme":"themes/actions_on_objective.md",
+        "techniques":[]
+    },
+    "masquerade": {
+        "theme":"themes/masquerade.md",
+        "techniques":[
+            "custom_encryption.md"
+        ]
+    },
+    "evasion": {
+        "theme":"themes/evasion.md",
+        "techniques":[]
+    },
+    "dos" :{
+        "theme":"themes/dos.md",
+        "techniques":[]
+    }   
+}
