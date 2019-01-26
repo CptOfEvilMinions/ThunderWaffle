@@ -2,7 +2,8 @@
 *.retry
 .DS_Store
 env/
+venv/
 group_vars/all.yml
 group_vars/logging.yml
 group_vars/docker.yml
-files/splunk/splunkforwarder.deb
+Resources/pdf_extractor/*.txt
