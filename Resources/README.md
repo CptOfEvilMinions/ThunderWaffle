@@ -1,10 +1,8 @@
 # Resources
 
-This folder contains whitepapers, APT reports, and etc used for this research
-
 ## PDF extractor
 
-This Python tool will create a list of PDFs that contain defined keywords.
+This Python tool will create a list of PDFs for a list of keywords.
 
 1. `cd pdf_extractor`
 1. `virtualenv -p python3 venv`
@@ -16,10 +14,12 @@ This Python tool will create a list of PDFs that contain defined keywords.
     1. `lateral movement`
     1. `exfil`
 1. `python3 pdf_extractor.py --path <path> --file <file path to keyword>`
-    1. Example: `python3 pdf_extractor.py --path /tmp/APT_CyberCriminal_Campagin_Collections --file keywords.txt`
+    1. Example: `python3 pdf_extractor.py --path /tmp/APT_CyberCriminal_Campagin_Collections --file keywords.txt --output pdf_files.ini`
         1. Path: `/tmp/APT_CyberCriminal_Campagin_Collections`
         1. file: `keywords.txt`
-1. An output file of `keyword_pdfs/<keyword>.txt` will be generated with a list of PDFs that contain that keyword.
+    1. ![PDF extractor cmd](../.img/pdf-extractor-cmd.png)
+1. An output file of `pdf_files.ini` will be generated with a list of PDFs for each keyword.
+    1. ![PDF extractor cmd](../.img/pdf-extractor-ini.png)
 
 ## APT reports
 
