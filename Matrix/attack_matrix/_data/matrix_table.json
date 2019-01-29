@@ -7,20 +7,20 @@
         {
             "Id": "01",
             "file_loc": "techniques/command_and_control/remote_admin_tools.html",
-            "enabled": "true"
+            "enabled": true
         },
         "HTTP": 
         {
             "Id": "02",
             "file_loc": "techniques/command_and_control/http.html",
-            "enabled": "true"
+            "enabled": true
         }
     },
     "Delivery":{
         "Waterholing": {
             "Id":"03",
             "file_loc": "techniques/command_and_control/http.html",
-            "enabled": "true"
+            "enabled": true
         }
     },
     "DOS":{
@@ -36,7 +36,7 @@
         "WinRM": {
             "Id": "03",
             "file_loc": "techniques/lateral_movement/winrm.md",
-            "enabled": "true"
+            "enabled": true
         }
     },
     "Masquerade": {

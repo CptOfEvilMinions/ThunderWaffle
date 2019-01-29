@@ -6,20 +6,27 @@ layout: home
 ---
 {% assign matrix_table=site.data.matrix_table %}
 
-
 <table>
     <tbody>
+        <!-- Iterate themes and techniques in each theme defined in matrix_tabele.json -->
         {% for theme in matrix_table %}
             <tr>
-            <td>{{theme [0]}}</td>
-               {% for technique in theme[1] %}
-                    <td> {{ technique[0] }}</td>
-                    {% endfor %}
+            <!-- Obtain attack theme which is the key -->
+            <td>{{ theme [0] }}</td>
+                <!-- Iterate techniques in each theme -->
+                {% for technique in theme[1] %}
+                    <!-- Display technique name if it's enabled -->
+                    {% if technique[1]['enabled'] == true %}
+                        <td>
+                            <a href="/{{ technique[1]['file_loc'] }}">{{ technique[0] }}</a>
+                        </td>
+                    {% endif %}
+                {% endfor %}
             </tr>
         {% endfor %}
     </tbody>
 </table>
-<p><a href="#">Rotate table BUTTON</a></p>
+<p><a href="#">Rotate table</a></p>
 
 <style>
     table, caption, thead, tbody, td, tr{
