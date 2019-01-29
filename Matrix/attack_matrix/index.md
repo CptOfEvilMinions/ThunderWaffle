@@ -8,19 +8,48 @@ layout: home
 
 
 <table>
-    <caption>Table caption</caption>
-    <thead>
-    {% for theme in matrix_table %}
-        <th>{{ theme[0] }}</th>
-    {% endfor %}
-    </thead>
     <tbody>
-    {% for theme in matrix_table %}
-        <tr>
-        {% for technique in theme[1] %}
-            <td>{{ theme[0] }}: {{ technique[0] }}</td>
+        {% for theme in matrix_table %}
+            <tr>
+            <td>{{theme [0]}}</td>
+               {% for technique in theme[1] %}
+                    <td> {{ technique[0] }}</td>
+                    {% endfor %}
+            </tr>
         {% endfor %}
-        </tr>
-    {% endfor %}
     </tbody>
 </table>
+<p><a href="#">Rotate table BUTTON</a></p>
+
+<style>
+    table, caption, thead, tbody, td, tr{
+        border: 1px solid black;
+        padding: 1rem;
+    }
+
+</style>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+
+    $("a").click(function(){
+    $("table").each(function() {
+        var $this = $(this);
+        var newrows = [];
+        $this.find("tr").each(function(){
+            var i = 0;
+            $(this).find("td").each(function(){
+                i++;
+                if(newrows[i] === undefined) { newrows[i] = $("<tr></tr>"); }
+                newrows[i].append($(this));
+            });
+        });
+        $this.find("tr").remove();
+        $.each(newrows, function(){
+            $this.append(this);
+        });
+    });
+    
+    return false;
+});
+</script>
