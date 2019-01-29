@@ -10,11 +10,16 @@ This Python tool will create a list of PDFs that contain defined keywords.
 1. `virtualenv -p python3 venv`
 1. `source venv/bin/activate`
 1. `pip3 install -r requirements.txt`
-1. `python3 pdf_extractor.py --path <path> --keyword <keyword>`
-    1. Example: `python3 pdf_extractor.py --path /tmp/APT_CyberCriminal_Campagin_Collections --keyword 'lateral movement'`
+1. Create a file called `keywords.txt` and add keywords(like below) to search for
+    1. `initial compromise`
+    1. `delivery`
+    1. `lateral movement`
+    1. `exfil`
+1. `python3 pdf_extractor.py --path <path> --file <file path to keyword>`
+    1. Example: `python3 pdf_extractor.py --path /tmp/APT_CyberCriminal_Campagin_Collections --file keywords.txt`
         1. Path: `/tmp/APT_CyberCriminal_Campagin_Collections`
-        1. Keyword: `lateral movement`
-1. An output file of `<keyword>.txt` will be generated with a list of PDFs that contain that keyword.
+        1. file: `keywords.txt`
+1. An output file of `keyword_pdfs/<keyword>.txt` will be generated with a list of PDFs that contain that keyword.
 
 ## APT reports
 
