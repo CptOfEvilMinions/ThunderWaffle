@@ -15,7 +15,7 @@ layout: home
             {% if theme[1]['enabled'] == true %}
 
                 <!-- Obtain attack theme which is the key -->
-                <td><a href="/{{ theme[1]['file_loc'] }}">{{ theme [0] }}: {{ theme[1]['enabled'] }}</a></td>
+                <td><a href="/{{ theme[1]['file_loc'] }}">{{ theme [0] }}</a></td>
 
                 <!-- Iterate techniques in each theme -->
                 {% for technique in theme[1] %}
@@ -68,3 +68,4 @@ layout: home
     return false;
 });
 </script>
+

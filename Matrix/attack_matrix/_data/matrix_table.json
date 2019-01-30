@@ -1,8 +1,7 @@
 {
     "Actions on objective":{
-        "enabled": true,
+        "enabled": false,
         "file_loc": "themes/command_n_control.md"
-       
     },
     "Command and control": {
         "enabled": true,
@@ -10,13 +9,13 @@
         "Remote admin tools":
         {
             "Id": "01",
-            "file_loc": "techniques/command_and_control/remote_admin_tools.html",
+            "file_loc": "techniques/command_and_control/remote_admin_tools.md",
             "enabled": true
         },
         "Listening services": 
         {
             "Id": "02",
-            "file_loc": "techniques/command_and_control/listening_service.html",
+            "file_loc": "techniques/command_and_control/listening_service.md",
             "enabled": true
         }
     },
@@ -25,19 +24,17 @@
         "file_loc": "themes/delivery.md",
         "Waterholing": {
             "Id":"03",
-            "file_loc": "techniques/command_and_control/http.html",
+            "file_loc": "techniques/command_and_control/http.md",
             "enabled": true
         }
     },
     "DOS":{
-        "enabled": true,
+        "enabled": false,
         "file_loc": "themes/command_n_control.md"
-       
     },
     "Evasion": {
-        "enabled": true,
+        "enabled": false,
         "file_loc": "themes/command_n_control.md"
-        
     },
     "Initial access": {
         "enabled": true,
@@ -86,7 +83,7 @@
         }
     },
     "Recon and weaponization": {
-        "enabled": true,
+        "enabled": false,
         "file_loc": "themes/command_n_control.md"
        
     },
