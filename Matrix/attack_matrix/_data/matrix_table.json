@@ -1,22 +1,28 @@
 {
     "Actions on objective":{
+        "enabled": true,
+        "file_loc": "themes/command_n_control.md"
        
     },
     "Command and control": {
+        "enabled": true,
+        "file_loc": "themes/command_n_control.md",
         "Remote admin tools":
         {
             "Id": "01",
             "file_loc": "techniques/command_and_control/remote_admin_tools.html",
             "enabled": true
         },
-        "HTTP": 
+        "Listening services": 
         {
             "Id": "02",
-            "file_loc": "techniques/command_and_control/http.html",
+            "file_loc": "techniques/command_and_control/listening_service.html",
             "enabled": true
         }
     },
     "Delivery":{
+        "enabled": true,
+        "file_loc": "themes/delivery.md",
         "Waterholing": {
             "Id":"03",
             "file_loc": "techniques/command_and_control/http.html",
@@ -24,25 +30,74 @@
         }
     },
     "DOS":{
+        "enabled": true,
+        "file_loc": "themes/command_n_control.md"
        
     },
     "Evasion": {
+        "enabled": true,
+        "file_loc": "themes/command_n_control.md"
         
     },
     "Initial access": {
-        
+        "enabled": true,
+        "file_loc": "themes/command_n_control.md",
+        "Zero day exploit": {
+            "Id": "03",
+            "file_loc": "techniques/initial_access/zero_day_exploit.md",
+            "enabled": true
+        }
     },
     "Lateral movement": {
+        "enabled": true,
+        "file_loc": "themes/command_n_control.md",
         "WinRM": {
             "Id": "03",
             "file_loc": "techniques/lateral_movement/winrm.md",
             "enabled": true
+        },
+        "Remote Desktop": {
+            "Id": "03",
+            "file_loc": "techniques/lateral_movement/remote_desktop.md",
+            "enabled": true
+        },
+        "SMB": {
+            "Id": "03",
+            "file_loc": "techniques/lateral_movement/smb.md",
+            "enabled": true
+        },"SSH HiJacking": {
+            "Id": "03",
+            "file_loc": "techniques/lateral_movement/ssh_hijacking.md",
+            "enabled": true
+        },
+        "WMI": {
+            "Id": "03",
+            "file_loc": "techniques/lateral_movement/wmi.md",
+            "enabled": true
         }
     },
     "Masquerade": {
-       
+        "enabled": true,
+        "file_loc": "themes/command_n_control.md",
+        "Custom encryption": {
+            "Id": "03",
+            "file_loc": "techniques/masquerade/custom_encryption.md",
+            "enabled": true
+        }
     },
     "Recon and weaponization": {
+        "enabled": true,
+        "file_loc": "themes/command_n_control.md"
        
+    },
+    "attack-theme-template": {
+        "enabled": false,
+        "file_loc": "themes/template.md",
+        "technique-template":
+        {
+            "Id": "0X",
+            "file_loc": "techniques/template.md",
+            "enabled": true
+        }
     }
 }

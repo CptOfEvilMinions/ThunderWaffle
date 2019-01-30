@@ -11,17 +11,25 @@ layout: home
         <!-- Iterate themes and techniques in each theme defined in matrix_tabele.json -->
         {% for theme in matrix_table %}
             <tr>
-            <!-- Obtain attack theme which is the key -->
-            <td>{{ theme [0] }}</td>
+            <!-- Skip theme if disabled values -->
+            {% if theme[1]['enabled'] == true %}
+
+                <!-- Obtain attack theme which is the key -->
+                <td><a href="/{{ theme[1]['file_loc'] }}">{{ theme [0] }}: {{ theme[1]['enabled'] }}</a></td>
+
                 <!-- Iterate techniques in each theme -->
                 {% for technique in theme[1] %}
+
                     <!-- Display technique name if it's enabled -->
                     {% if technique[1]['enabled'] == true %}
                         <td>
                             <a href="/{{ technique[1]['file_loc'] }}">{{ technique[0] }}</a>
                         </td>
                     {% endif %}
+
                 {% endfor %}
+
+            {% endif %}
             </tr>
         {% endfor %}
     </tbody>

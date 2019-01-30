@@ -21,7 +21,20 @@
 
 1. `jekyll build`
 
-## Adding technique
+## Adding technique/theme
+
+```json
+"attack-theme-template": {
+    "enabled": false,
+    "file_loc": "themes/template.md",
+    "technique-template":
+    {
+        "Id": "0X",
+        "file_loc": "techniques/template.md",
+        "enabled": true
+    }
+}
+```
 
 
 ## Adding column
