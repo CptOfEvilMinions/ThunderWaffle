@@ -1,6 +1,7 @@
 import PyPDF2 
 from pathlib import Path
 import argparse
+from os import path
 
 def extract_text(filename):
     # Open allows you to read the file
@@ -41,22 +42,35 @@ def extract_text(filename):
     # Return PDF text
     return pdfText
 
-# Generate a list of file paths for PDFs in a directory
+"""
+Generate a list of file paths for PDFs in a directory
+"""
 def generate_list_of_pdfs(dir_path):
     return list(Path(dir_path).rglob("*.[pP][dD][fF]"))
 
-# Create a set of keywords from text file
+"""
+Create list of keywords lists from text file
+"""
 def create_keywords_list(file_path):
     kFile = open(file_path, 'r')
 
+    keyword_lst = list()
+    for line in kFile.readlines():
+        if ',' in line:
+            keyword_lst.append([x.lower().strip() for x in line.split(',')])
+        else:
+            keyword_lst.append([line.lower().strip()])
+
     # Return a set of keywords
-    return set([keyword.lower().strip() for keyword in kFile.readlines()])
+    print (keyword_lst)
+    return keyword_lst
 
-
-# Output PDFs that contain keyword
-# [keyword]
-# <PDF file path>
-# <PDF file path>
+"""
+Output PDFs that contain keyword
+[keyword]
+<PDF file path>
+<PDF file path>
+"""
 def pretty_print_file(file_dict, filename):
     pdf_file = open(filename, 'w')
 
@@ -76,22 +90,32 @@ def pretty_print_file(file_dict, filename):
     pdf_file.close()
 
 
-def add_pdf_to_dict(keyword, pdfText, file_dict, pdf_file_path):
+def add_pdf_to_dict(keyword, heading, pdfText, file_dict, pdf_file_path):
+    base_file_name = path.basename( str(pdf_file_path) )
+    
     if keyword in pdfText: 
-        print ("[+] Added {0} to [{1}] section".format(str(pdf_file_path), keyword))
+        print ("[+] Added {0} to [{1}] section for {2}".format(base_file_name, heading, keyword))
 
         # Add PDF file path to dict
         # If keyword exists
-        if keyword in file_dict:
-            file_dict[keyword].append( str(pdf_file_path) )
+        temp = "{0} - {1}".format(keyword, str(pdf_file_path) )
+        if heading in file_dict:
+            file_dict[heading].append( temp )
         else:
-            file_dict[keyword] = [str(pdf_file_path)]
+            file_dict[heading] = [temp]
+        
+        return True
+    
+    return False
 
-def search_pdfs(file_dict, list_of_pdfs, keyword_set):
+"""
+This function iterates through a list of PDF file paths and extracts text. 
+"""
+def search_pdfs(file_dict, list_of_pdfs, keyword_lst):
      for pdf_file_path in list_of_pdfs:
         print (pdf_file_path)
 
-        # Extract test from PDF
+        # Extract text from PDF
         pdfText = extract_text(pdf_file_path)
 
         # If pdfTest is None then move to next file
@@ -101,9 +125,16 @@ def search_pdfs(file_dict, list_of_pdfs, keyword_set):
         # Make sure all the text is lowercase
         pdfText = pdfText.lower()
 
-        # Iterate over keywords and see if keyword exists in PDFtext
-        for keyword in keyword_set:
-            add_pdf_to_dict(keyword, pdfText, file_dict, pdf_file_path)
+        # Iterate over a list of keyword sets
+        for keyword_set in keyword_lst:
+            # Set keyword heading
+            heading = keyword_set[0]
+
+            # Iterate over all keywords in set and see if keyword exists in PDFtext
+            for keyword in keyword_set:
+                # If a keyword was already detected then ignore the rest
+                if add_pdf_to_dict(keyword, heading, pdfText, file_dict, pdf_file_path):
+                    break
 
 
 def main():
@@ -118,7 +149,7 @@ def main():
     print ("PDF directory: {0}".format(args['path']))
 
     # Key words
-    keyword_set = create_keywords_list(args['file'])
+    keyword_lst = create_keywords_list(args['file'])
     
     # Generate a list of PDFs in directory
     list_of_pdfs = generate_list_of_pdfs(args['path'])
@@ -127,7 +158,7 @@ def main():
     file_dict = dict()
 
     # Iterate all PDFs for keywords
-    search_pdfs(file_dict, list_of_pdfs, keyword_set)
+    search_pdfs(file_dict, list_of_pdfs, keyword_lst)
     
     # Output filedict contents to txt
     pretty_print_file(file_dict, args['output'])
