@@ -2,6 +2,13 @@
 
 The malware communicates with a public service such as Google or Dropbox. These services can be used for the staging of malware or C2 communication.
 
+## Public services
+
+* Twitter
+* Google Drive
+* Dropbox
+* Box
+
 ## Malware/Threat actors
 
 | Name | Description | Year(s) | Source |

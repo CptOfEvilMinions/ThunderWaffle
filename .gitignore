@@ -6,4 +6,4 @@ venv/
 group_vars/all.yml
 group_vars/logging.yml
 group_vars/docker.yml
-Resources/pdf_extractor/*.txt
+Resources/pdf_keyword_extractor/*.ini

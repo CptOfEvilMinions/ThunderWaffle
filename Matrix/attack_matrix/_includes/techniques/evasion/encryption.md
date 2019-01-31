@@ -1,7 +1,7 @@
 
 # `Encryption - <technique ID>`
 
-`<description of technique>`
+Threat actors may utilize encryption to thwart security controls from reading the data in transit.
 
 ## Common types
 
@@ -10,6 +10,8 @@
 | Name | Description | Year(s) | Source |
 | --- | --- | --- |
 | `ETSO` | - | - | - |
+| `Wild Neutron` | - | - | - |
+
 
 ## Mitigations
 

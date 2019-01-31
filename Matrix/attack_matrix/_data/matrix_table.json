@@ -51,6 +51,11 @@
             "file_loc": "techniques/evasion/custom_obfuscation.md",
             "enabled": true
         },
+        "Custom protocol": {
+            "Id": "03",
+            "file_loc": "techniques/evasion/custom_protocol.md",
+            "enabled": true
+        },
         "Encoding": {
             "Id": "03",
             "file_loc": "techniques/evasion/encoding.md",
@@ -72,7 +77,7 @@
         "file_loc": "themes/command_n_control.md",
         "Zero day exploit": {
             "Id": "03",
-            "file_loc": "techniques/initial_access/zero_day_exploit.md",
+            "file_loc": "techniques/lateral/zero_day_exploit.md",
             "enabled": true
         }
     },
@@ -102,11 +107,21 @@
             "Id": "03",
             "file_loc": "techniques/lateral_movement/wmi.md",
             "enabled": true
+        },
+        "Exploits": {
+            "Id": "03",
+            "file_loc": "techniques/lateral_movement/exploits.md",
+            "enabled": true
         }
     },
     "Masquerade": {
         "enabled": true,
-        "file_loc": "themes/command_n_control.md"
+        "file_loc": "themes/masquerade.md",
+        "Domain spoofing": {
+            "Id": "0X",
+            "file_loc": "techniques/masquerade/domain_spoofing.md",
+            "enabled": true
+        }
     },
     "Recon and weaponization": {
         "enabled": false,

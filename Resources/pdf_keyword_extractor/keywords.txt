@@ -1,6 +1,5 @@
 initial compromise
-delivery
-distribution
+delivery,distribution
 initial access
 command and control,C2,cnc
 evasion,circumvention

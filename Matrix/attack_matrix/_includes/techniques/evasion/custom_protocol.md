@@ -1,19 +1,21 @@
 # `Custom encryption - <technique ID>`
 
-Threat actors may create custom obfuscation(encryption, encoding) to thwart defenders.
+Threat actors may create custom protcols to thwart security controls from reading the data in transit.
 
 ## Common types
 
-* encryption
-* obfuscation
-* compression
+* TCP
+* Traffic over port 443 that is not HTTPS
 
 ## Malware/Threat actors
 
 | Name | Description | Year(s) | Source |
 | --- | --- | --- | -- |
-| `TeamSpy` | - | - | - |
 | `Wild Neutron` | - | - | - |
+| `icefog` | - | - | - |
+| `APT1` | - | - | - |
+| `Duqu Trojan` | - | - | - |
+| `Turbo` | - | - | - |
 
 ## Mitigations
 
@@ -26,7 +28,3 @@ During the encryption handshake in protocols like TLS, SSL, and SSH look for enc
 ## Toolkit
 
 `<Toolkit instructions, if applicable>`
-
-## Resources/Sources
-
-* [Github - CyberMonitor/APT_CyberCriminal_Campagin_Collections](https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections)
