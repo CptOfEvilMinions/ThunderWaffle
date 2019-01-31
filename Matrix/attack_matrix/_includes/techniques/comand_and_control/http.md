@@ -1,0 +1,32 @@
+# `HTTP - <technique ID>`
+
+Command and control server uses a full web backend that lets the attacker directly control the victims via a web browser. These HTTP channels may be plain-text or encrypted with SSL as described in the [Fireye - World War C: Understanding Nation-State Motives Behind Today’s Advanced Cyber Attacks](https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2013/fireeye-wwc-report.pdf) report. 
+
+## Common backends
+
+* IIS
+* ASP .NET
+
+
+## Malware/Threat actors
+
+| Name | Description | Year(s) | Source |
+| --- | --- | --- |
+| `icefog` | - | - | - |
+| `Nettraveler` | - | - | - |
+
+## Mitigations
+
+`<Mitigation techniques>`
+
+## Detections
+
+`<Detection techniques>`
+
+## Toolkit
+
+`<Toolkit instructions, if applicable>`
+
+## Resources/Sources
+
+[Fireye - World War C: Understanding Nation-State Motives Behind Today’s Advanced Cyber Attacks](https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2013/fireeye-wwc-report.pdf)

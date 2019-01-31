@@ -6,6 +6,8 @@ permalink: /themes/
 
 {% assign matrix_table=site.data.matrix_table %}
 
+
+
 <table>
     <tbody>
         <!-- Create column headings -->

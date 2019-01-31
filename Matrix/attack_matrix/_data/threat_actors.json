@@ -19,5 +19,34 @@
         "sources": [
             "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/tree/master/2013/2013.01.14.Red_October_Campaign"
         ]
+    },
+    "icefog": {
+        "description": "The Icefog targeted attacks rely on spear-phishing e-mails that attempt to trick the victim into opening a malicious attachment or a website.",
+        "years": "2013",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2013/icefog.pdf"
+        ]
+    },
+    "Nettraveler":
+    {
+        "description": "nettraveler is an automatic data exfiltration tool, designed to extract large amounts of private information from the victim’s system over long periods of time. the malware uses compression techniques and a fail-safe protocol to ensure that uploaded data is safely transferred to the attacker’s c2s.",
+        "years": "2004-2013",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2013/kaspersky-the-net-traveler-part1-final.pdf"
+        ]
+    },
+    "ETSO":{
+        "description": "In the APT attacks against the companies in Korea, the ETSO Attack Group used encrypted communication between the master which generated the malware, monitored the system and managed the C2 agent, and the agent which accessed the C2 server. The ETSO Attack Group penetrated the targeted network via the C2 agent and remained dormant for a long period of time without any abnormal behavior that would trigger a network error or website compromise, thus making it difficult to detect the attacks.",
+        "years": "2011-2013",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2013/ETSO_APT_Attacks_Analysis.pdf"
+        ]
+    },
+    "Trojan.APT.Seinup": {
+        "description": "The FireEye research team has recently identified a number of spear phishing activities targeting Asia and ASEAN. Of these, one of the spear phishing documents was suspected to have used a potentially stolen document as a decoy. The rich and contextual details (body and metadata) which are not available online lead us to believe this was stolen. This decoy document mentioned countries such as Brunei, Cambodia, Indonesia, Laos, Malaysia, Myanmar, Philippines, Singapore, Thailand, and Vietnam, which leads us to suspect that these countries are targeted. As the content of this decoy document is suspected to be a stolen sensitive document, the details will not be published.",
+        "years": "2012-2013",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2013/Trojan.APT.Seinup.pdf"
+        ]
     }
 }

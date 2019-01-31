@@ -17,6 +17,12 @@
             "Id": "02",
             "file_loc": "techniques/command_and_control/listening_service.md",
             "enabled": true
+        },
+        "HTTP": 
+        {
+            "Id": "02",
+            "file_loc": "techniques/command_and_control/http.md",
+            "enabled": true
         }
     },
     "Delivery":{
@@ -33,8 +39,33 @@
         "file_loc": "themes/command_n_control.md"
     },
     "Evasion": {
-        "enabled": false,
-        "file_loc": "themes/command_n_control.md"
+        "enabled": true,
+        "file_loc": "themes/evasion.md",
+        "Public services": {
+            "Id": "03",
+            "file_loc": "techniques/evasion/public_services.md",
+            "enabled": true
+        },
+        "Custom obfuscation": {
+            "Id": "03",
+            "file_loc": "techniques/evasion/custom_obfuscation.md",
+            "enabled": true
+        },
+        "Encoding": {
+            "Id": "03",
+            "file_loc": "techniques/evasion/encoding.md",
+            "enabled": true
+        },
+        "Encryption": {
+            "Id": "03",
+            "file_loc": "techniques/evasion/encryption.md",
+            "enabled": true
+        },
+        "Compression": {
+            "Id": "03",
+            "file_loc": "techniques/evasion/compression.md",
+            "enabled": true
+        }
     },
     "Initial access": {
         "enabled": true,
@@ -75,12 +106,7 @@
     },
     "Masquerade": {
         "enabled": true,
-        "file_loc": "themes/command_n_control.md",
-        "Custom encryption": {
-            "Id": "03",
-            "file_loc": "techniques/masquerade/custom_encryption.md",
-            "enabled": true
-        }
+        "file_loc": "themes/command_n_control.md"
     },
     "Recon and weaponization": {
         "enabled": false,
