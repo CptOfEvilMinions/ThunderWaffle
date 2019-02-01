@@ -16,10 +16,10 @@ layout: home
 <div class="techniques">
  {% for technique in theme[1] %}
 {% if technique[1]['enabled'] == true %}
- <a class="technique" href="/{{ technique[1]['file_loc'] }}">{{ technique[0] }}</a>
+ <a class="technique" href="{{ technique[1]['file_loc'] }}">{{ technique[0] }}</a>
 
 {% endif %}
- {% endfor %}
+{% endfor %}
 
 </div>
 
