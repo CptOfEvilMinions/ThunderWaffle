@@ -66,7 +66,17 @@
             "file_loc": "techniques/evasion/encryption.md",
             "enabled": true
         },
-        "Compression": {
+        "Compression2": {
+            "Id": "03",
+            "file_loc": "techniques/evasion/compression.md",
+            "enabled": true
+        },
+        "Compression3": {
+            "Id": "03",
+            "file_loc": "techniques/evasion/compression.md",
+            "enabled": true
+        },
+        "Compression4": {
             "Id": "03",
             "file_loc": "techniques/evasion/compression.md",
             "enabled": true

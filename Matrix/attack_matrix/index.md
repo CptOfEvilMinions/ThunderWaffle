@@ -7,42 +7,90 @@ layout: home
 
 {% assign matrix_table=site.data.matrix_table %}
 
-<table>
-    <tbody>
-        <!-- Iterate themes and techniques in each theme defined in matrix_tabele.json -->
-        {% for theme in matrix_table %}
-            <tr>
-            <!-- Skip theme if disabled values -->
-            {% if theme[1]['enabled'] == true %}
+<div class="flexbox">
+{% for theme in matrix_table %}
+{% if theme[1]['enabled'] == true %}
 
-                <!-- Obtain attack theme which is the key -->
-                <td><a href="/{{ theme[1]['file_loc'] }}">{{ theme [0] }}</a></td>
+<div class="col">
+<p class="theme"> {{theme[0]}}</p>
+<div class="techniques">
+ {% for technique in theme[1] %}
+{% if technique[1]['enabled'] == true %}
+ <a class="technique" href="/{{ technique[1]['file_loc'] }}">{{ technique[0] }}</a>
 
-                <!-- Iterate techniques in each theme -->
-                {% for technique in theme[1] %}
+{% endif %}
+ {% endfor %}
 
-                    <!-- Display technique name if it's enabled -->
-                    {% if technique[1]['enabled'] == true %}
-                        <td>
-                            <a href="/{{ technique[1]['file_loc'] }}">{{ technique[0] }}</a>
-                        </td>
-                    {% endif %}
+</div>
 
-                {% endfor %}
 
-            {% endif %}
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<p><a href="#">Rotate table</a></p>
+</div>
+ {% endif %}
+
+{% endfor %}
+</div>
+
+
 
 <style>
     table, caption, thead, tbody, td, tr{
         border: 1px solid black;
         padding: 1rem;
     }
+    .flexbox{
+        display: flex;
+        width: 100%
+        flex-wrap: nowrap;
+        height: 50rem;
+border-style: solid;
+        border-color: black;
+        border-width: 2px 1px 2px 1px;
+          
+        
+        
+    }
+    .col{
+height: 100%;
+      border-style: solid;
+        border-color: black;
+        border-width: 0 1px 0 1px;
+     
+       
+    }
+    .theme{
+        padding: 10px;
+        font-weight: 700;
+        background: lightgray;
+        min-height: 5%;
+        max-height: 25px;
+        margin: 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .techniques{
 
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 100%;
+
+    }
+    .col .technique{
+        padding: 5px 10px;
+        min-height: 50px;
+        text-decoration: none;
+        border-style: solid;
+        border-color: black;
+        border-width: 0 0 1px 0;
+    }
+
+    .col .technique:hover{
+        background-color: #6699cc;
+        color: white;
+
+    }
 </style>
 
 <script src="jquery-3.3.1.min.js"></script>
