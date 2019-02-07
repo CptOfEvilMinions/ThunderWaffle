@@ -112,6 +112,55 @@
             "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2014/fireeye-sidewinder-targeted-attack.pdf"
         ]
     },
+    "DarkComet": {
+        "type": "malware",
+        "description": "DarkComet is primarily a general purpose remote access trojan (RAT)",
+        "years": "2012",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2012/2012.03.13.DarkComet_RAT/Crypto-DarkComet-Report.pdf"
+        ]
+    },
+    "Operation Cleaver": {
+        "type": "threat actor",
+        "description": "The focus of the Operation Cleaver report is on one particular Iranian team we’ve dubbed Tarh Andishan, the infrastructure they utilize, as well as their tactics, techniques and procedures. Roughly translated, 'Tarh Andishan' means 'thinkers' or 'innovators'. This team displays an evolved skillset and uses a complex infrastructure to perform attacks of espionage, theft, and the potential destruction of control systems and networks. While our investigation is ongoing, and we presently have limited visibility inside many of the compromised networks, Cylance observed Tarh Andishan actively targeting, attacking, and compromising more than 50 victims since at least 2012.",
+        "years": "2012-2013",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2014/2014.12.02.Operation_Cleaver/Cylance_Operation_Cleaver_Report.pdf"
+        ]
+    },
+    "Operation Dust Storm": {
+        "type": "threat actor",
+        "description": "Our research indicates Operation Dust Storm has been operational since at least early 2010, and has employed a number of different operational techniques, including spear phishing, waterholes, and zero-day exploits over time. Several antivirus companies initially detected early backdoor samples under the moniker Misdat, but the group has quietly evolved over the years to remain undetected and highly effective.",
+        "years": "2010-2015",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2016/2016.02.23.Operation_Dust_Storm/Op_Dust_Storm_Report.pdfhttps://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2016/2016.02.23.Operation_Dust_Storm/Op_Dust_Storm_Report.pdf"
+        ]
+    },
+    "ZooPark": {
+        "type": "threat actor",
+        "description": "ZooPark is a cyberespionage operation that has been focusing on Middle Eastern targets since at least June 2015. The threat actors behind ZooPark infect Android devices using several generations of malware we label from v1-v4, with v4 being the most recent version deployed in 2017.",
+        "years": "2015-2017",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2018/2018.05.03.whos-who-in-the-zoo/ZooPark_for_public_final_edit.pdf"
+        ]
+    },
+    "Epic Turla": {
+        "type": "threat actor",
+        "description": "The attackers behind Epic Turla have infected several hundred computers in more than 45 countries, including government institutions, embassies, military, education, research and pharmaceutical companies.",
+        "years": "< Known years active >",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2014/The_Epic_Turla_Operation.pdf",
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2014/KL_Epic_Turla_Technical_Appendix_20140806.pdf"
+        ]
+    },
+    "Energetic Bear": {
+        "type": "threat actor",
+        "description": "Energetic Bear/Crouching Yeti is an actor involved in several advanced persistent threat (APT) campaigns that have been active going back to at least the end of 2010. Targeted sectors include: Industrial/machinery, Manufacturing, Pharmaceutical, Construction, Education, and Information technology",
+        "years": "2010-2014",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2014/EB-YetiJuly2014-Public.pdf"
+        ]
+    },
     "template": {
         "type": "< threat actor/malware >",
         "description": "< Description of threat actor or malware >",

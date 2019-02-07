@@ -14,7 +14,7 @@ dns pharming
 NBNS spoofing
 reconnaissance,recon
 weaponization
-waterhole
+waterhole,water holing
 torrent
 phishing,spear phishing
 domain fronting

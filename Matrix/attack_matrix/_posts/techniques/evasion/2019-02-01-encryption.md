@@ -11,6 +11,8 @@ Threat actors may utilize encryption to thwart security controls from reading th
 | --- | --- | --- |
 | `ETSO` | - | - | - |
 | `Wild Neutron` | - | - | - |
+| `Energetic Bear` | --- | --- | --- |
+| `Jaku` | - | - | - |
 
 
 ## Mitigations
