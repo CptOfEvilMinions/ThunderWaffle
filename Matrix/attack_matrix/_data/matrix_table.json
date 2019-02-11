@@ -15,7 +15,7 @@
     },
     "Command and control": {
         "enabled": true,
-        "file_loc": "themes/command_n_control",
+        "file_loc": "themes/command_and_control",
         "Remote admin tools": {
             "Id": "01",
             "file_loc": "techniques/actions_on_objective/remote_admin_tools",
@@ -172,9 +172,8 @@
         }
     },
     "Recon and weaponization": {
-        "enabled": false,
+        "enabled": true,
         "file_loc": "themes/recon_weapon"
-       
     },
     "Internal recon": {
         "enabled": true,
@@ -192,7 +191,7 @@
         {
             "Id": "0X",
             "file_loc": "techniques/template",
-            "enabled": true
+            "enabled": false
         }
     }
 }
