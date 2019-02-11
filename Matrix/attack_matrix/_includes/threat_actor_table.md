@@ -1,3 +1,4 @@
+{% assign threat_actors = site.data.threat_actors %}
 | Name | Type | Description | Year(s) | Source |
 | --- | --- | --- | --- | - |
 {%- for malware in malwares %}
