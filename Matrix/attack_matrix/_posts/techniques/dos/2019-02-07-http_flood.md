@@ -10,9 +10,9 @@ An [HTTP flood attack](https://www.cloudflare.com/learning/ddos/http-flood-ddos-
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `DarkComet` | - | - | - |
+{% assign malwares = 'DarkComet' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 

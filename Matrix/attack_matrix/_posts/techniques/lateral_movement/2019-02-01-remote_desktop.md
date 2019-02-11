@@ -10,9 +10,9 @@ Attackers will use valid credentials to move laterally in enviornment by utilizi
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `Gh0st` | - | - | - |
+{% assign malwares = 'Gh0st Rat' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 

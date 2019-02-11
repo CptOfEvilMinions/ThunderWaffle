@@ -10,11 +10,9 @@ The technique of threat actors deploying torrent files onto torrent sites that a
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `Jaku` | - | - | - |
-| `APT37` | - | - | - |
-| `<Malware or threat actor>` | - | - | - |
+{% assign malwares = 'Jaku,APT37' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 

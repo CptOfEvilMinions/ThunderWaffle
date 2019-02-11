@@ -10,9 +10,9 @@ permalink: /techniques/initial_compromise/sql_injection
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `Operation Cleaver` | - | - | - |
+{% assign malwares = 'Operation Cleaver' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 

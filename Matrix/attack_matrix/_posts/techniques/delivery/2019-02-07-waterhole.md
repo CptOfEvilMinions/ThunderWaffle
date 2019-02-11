@@ -18,13 +18,9 @@ A [watering hole attack](https://searchsecurity.techtarget.com/definition/wateri
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `Operation Dust Storm` | - | - | - |
-| `ZooPark` | - | - | - |
-| `Operation Cleaver` | - | - | - |
-| `Epic Turla` | --- | --- | --- |
-| `Energetic Bear` | --- | --- | --- |
+{% assign malwares = 'Operation Dust Storm,ZooPark,Operation Cleaver,Epic Turla,Energetic Bear' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 

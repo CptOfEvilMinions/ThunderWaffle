@@ -11,9 +11,9 @@ A host with an open port that can be accessed by the attacker to invoke actions.
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `Gh0st Rat` | - | - | - |
+{% assign malwares = 'Gh0st Rat' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 

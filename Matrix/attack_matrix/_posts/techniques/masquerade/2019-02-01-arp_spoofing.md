@@ -10,10 +10,9 @@ permalink: /techniques/masquerade/arp_spoofing
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `SIDEWINDER` | - | - | - |
-| `Operation Cleaver` | --- | --- | --- |
+{% assign malwares = 'SIDEWINDER,Operation Cleaver' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 

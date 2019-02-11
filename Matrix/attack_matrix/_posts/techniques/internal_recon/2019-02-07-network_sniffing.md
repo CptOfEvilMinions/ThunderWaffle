@@ -10,10 +10,9 @@ permalink: /techniques/internal_recon/network_sniffing
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `Operation Cleaver` | --- | --- | --- |
-| `<Malware or threat actor>` | - | - | - |
+{% assign malwares = 'Operation Cleaver' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 

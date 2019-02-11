@@ -10,10 +10,9 @@ permalink: /techniques/evasion/compression
 
 ## Malware/Threat actors
 
-| Name | Description | Year(s) | Source |
-| --- | --- | --- |
-| `Nettraveler` | - | - | - |
-| `Jaku` | - | - | - |
+{% assign malwares = 'Nettraveler,Jaku' | split: ',' %}
+
+{% include threat_actor_table.md %}
 
 ## Mitigations
 
