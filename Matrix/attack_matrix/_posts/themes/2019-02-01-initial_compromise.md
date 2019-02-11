@@ -7,8 +7,7 @@ description: "The attacker successfully executes malicious code on one or more s
 ---
 # Initial compromise
 
-The attacker successfully executes malicious code on one or more systems. This most likely occurs through social engineering (most often spear phishing), by exploiting a vulnerability on an Internet-facing system, or by any other means necessary.
-
+{{ page.description }}
 
 ## Categories
 

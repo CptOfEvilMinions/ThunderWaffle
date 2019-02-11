@@ -7,7 +7,7 @@ description: "The attacker explores the victim’s environment to gain a better 
 ---
 # Attack theme
 
-The attacker explores the victim’s environment to gain a better understanding of the environment, the roles and responsibilities of key individuals, and to determine where an organization stores information of interest.
+{{ page.description }}
 
 ## Categories
 

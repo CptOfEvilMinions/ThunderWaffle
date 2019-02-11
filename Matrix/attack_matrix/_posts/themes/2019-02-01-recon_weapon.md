@@ -8,7 +8,7 @@ description: "The attacker conducts research on a target. The attacker identifie
 
 # Attack theme
 
-The attacker conducts research on a target. The attacker identifies targets (both systems and people) and determines his attack methodology. The attacker may look for Internet-facing services or individuals to exploit.
+{{ page.description }}
 
 ## Activities
 
