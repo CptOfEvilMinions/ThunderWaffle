@@ -3,10 +3,11 @@ layout: page
 title: Internal recon
 category: themes
 permalink: /themes/internal_recon
+description: "The attacker explores the victim’s environment to gain a better understanding of the environment, the roles and responsibilities of key individuals, and to determine where an organization stores information of interest."
 ---
 # Attack theme
 
- The attacker explores the victim’s environment to gain a better understanding of the environment, the roles and responsibilities of key individuals, and to determine where an organization stores information of interest.
+The attacker explores the victim’s environment to gain a better understanding of the environment, the roles and responsibilities of key individuals, and to determine where an organization stores information of interest.
 
 ## Categories
 
