@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Public services
 category: techniques
 permalink: /techniques/evasion/public_services

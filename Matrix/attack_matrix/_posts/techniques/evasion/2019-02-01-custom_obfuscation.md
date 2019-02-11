@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Custom obfuscation
 category: techniques
 permalink: /techniques/evasion/custom_obfuscation

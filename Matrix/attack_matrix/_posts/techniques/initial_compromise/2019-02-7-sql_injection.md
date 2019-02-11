@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: SQL Injection
 category: techniques
 permalink: /techniques/initial_compromise/sql_injection

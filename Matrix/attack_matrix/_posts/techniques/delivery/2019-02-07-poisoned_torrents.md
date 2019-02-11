@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Poisoned torrents
 category: techniques
 permalink: /techniques/delivery/poisoned_torrents

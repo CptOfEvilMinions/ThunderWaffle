@@ -1,20 +1,21 @@
 ---
-layout: page
-title: DNS
+layout: post
+enabled: true
+title: "Listening Service"
 category: techniques
-permalink: /techniques/command_and_control/dns
+theme: command_and_control
+Id: 04
+description: ""
 ---
-# `<Technique name> - <technique ID>`
+{{ page. description }}
 
-DNS that uses DNS queries and responses as a C2 channel.
+
 
 ## Malware/Threat actors
 
-{% assign malwares = 'Jaku' | split: ',' %}
+{% assign malwares = 'Gh0st Rat' | split: ',' %}
 
 {% include threat_actor_table.md %}
-
-
 
 ## Mitigations
 
@@ -22,8 +23,7 @@ DNS that uses DNS queries and responses as a C2 channel.
 
 ## Detections
 
-* Connection to a rare domain
-* Large DNS payloads
+`<Detection techniques>`
 
 ## Toolkit
 
@@ -32,4 +32,3 @@ DNS that uses DNS queries and responses as a C2 channel.
 ## Resources/Sources
 
 * `[<Source name>](<Source link>)`
-

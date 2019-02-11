@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Recon and weaponization
 category: themes
 permalink: /themes/recon_weapon

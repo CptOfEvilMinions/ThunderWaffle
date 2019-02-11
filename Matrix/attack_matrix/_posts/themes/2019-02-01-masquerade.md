@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Masquerade
 category: themes
 permalink: /themes/masquerade

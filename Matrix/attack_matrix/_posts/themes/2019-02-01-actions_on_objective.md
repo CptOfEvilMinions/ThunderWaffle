@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Actions on objective
 category: themes
 permalink: /themes/actions_on_objective

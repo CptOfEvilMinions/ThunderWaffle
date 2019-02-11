@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: ARP spoofing
 category: techniques
 permalink: /techniques/masquerade/arp_spoofing

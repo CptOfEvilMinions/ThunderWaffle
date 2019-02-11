@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Command and control
 category: themes
 permalink: /themes/command_and_control

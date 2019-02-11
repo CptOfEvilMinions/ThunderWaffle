@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Lateral movement
 category: themes
 permalink: /themes/lateral_movement

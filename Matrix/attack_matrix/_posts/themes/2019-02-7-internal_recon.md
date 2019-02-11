@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Internal recon
 category: themes
 permalink: /themes/internal_recon

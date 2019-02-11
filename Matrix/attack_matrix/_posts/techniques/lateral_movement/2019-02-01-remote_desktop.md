@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Remote Desktop
 category: techniques
 permalink: /techniques/lateral_movement/remote_desktop

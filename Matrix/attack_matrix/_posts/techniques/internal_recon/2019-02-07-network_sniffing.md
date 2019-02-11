@@ -1,6 +1,7 @@
 ---
-layout: page
-title: Exploit
+layout: post
+enabled: true
+title: Network sniffing
 category: techniques
 permalink: /techniques/internal_recon/network_sniffing
 ---

@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Initial compromise
 category: themes
 permalink: /themes/initial_compromise

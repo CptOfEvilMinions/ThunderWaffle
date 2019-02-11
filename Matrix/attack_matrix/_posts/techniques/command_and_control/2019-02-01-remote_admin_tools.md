@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Remote Admin Tools
 category: techniques
 permalink: /techniques/actions_on_objective/remote_admin_tools

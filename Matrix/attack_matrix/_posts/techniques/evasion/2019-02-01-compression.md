@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: post
+enabled: true
 title: Compression
 category: techniques
 permalink: /techniques/evasion/compression
