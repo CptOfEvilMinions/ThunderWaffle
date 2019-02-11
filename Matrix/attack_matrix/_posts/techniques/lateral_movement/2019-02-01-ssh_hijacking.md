@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: SSH HiJacking
 category: techniques
 permalink: /techniques/lateral_movement/ssh_hijacking

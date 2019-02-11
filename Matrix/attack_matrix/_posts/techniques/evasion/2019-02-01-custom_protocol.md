@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Custom protocol
 category: techniques
 permalink: /techniques/evasion/custom_protocol

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Exploit
 category: techniques
 permalink: /techniques/internal_recon/network_sniffing

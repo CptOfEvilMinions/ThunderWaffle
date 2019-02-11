@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Waterhole
 category: techniques
 permalink: /techniques/delivery/waterhole

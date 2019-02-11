@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: HTTP Flood
 category: techniques
 permalink: /techniques/dos/http_flood

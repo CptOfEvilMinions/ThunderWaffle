@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Public services
 category: techniques
 permalink: /techniques/evasion/public_services

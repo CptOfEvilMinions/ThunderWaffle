@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Listening Service
 category: techniques
 permalink: /techniques/command_and_control/listening_service

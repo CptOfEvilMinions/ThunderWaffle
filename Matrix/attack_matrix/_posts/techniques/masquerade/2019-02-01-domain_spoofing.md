@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Domain spoofing
 category: techniques
 permalink: /techniques/masquerade/domain_spoofing

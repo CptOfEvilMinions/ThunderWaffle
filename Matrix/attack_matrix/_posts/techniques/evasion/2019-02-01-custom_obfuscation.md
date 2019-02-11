@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Custom obfuscation
 category: techniques
 permalink: /techniques/evasion/custom_obfuscation

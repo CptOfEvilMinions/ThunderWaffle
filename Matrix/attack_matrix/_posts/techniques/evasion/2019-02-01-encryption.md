@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Encryption
 category: techniques
 permalink: /techniques/evasion/encryption

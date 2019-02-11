@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Defacement
 category: techniques
 permalink: /techniques/actions_on_objective/defacement
