@@ -1,9 +1,10 @@
+[
 {
     "APT1": {
         "type": "threat actor",
         "description":"APT1 is a single organization of operators that has conducted a cyber espionage campaign against a broad range of victims since at least 2006. From our observations, it is one of the most prolific cyber espionage groups in terms of the sheer quantity of information stolen.",
         "years":"2006-2013",
-        "sources":[     
+        "sources":[    
             "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2013/2013.02.18.APT1/Mandiant_APT1_Report.pdf"
         ]
     },
@@ -11,7 +12,7 @@
         "type": "threat actor",
         "description":"For at least several years, a mysterious threat actor infiltrated and tracked, performed surveillance and stole data from governmental organisations, some private companies and human rights activists throughout the Commonwealth of Independent States (CIS) and Eastern European nations. Some parts of this operation extended into Western nations and the Middle East as well, with victims in sectors such as energy and heavy industry manufacturing.",
         "years":"2008-2013",
-        "sources":[     
+        "sources":[    
             "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2013/2013.03.20.TeamSpy_Crew/theteamspystory_final_t2.pdf"
         ]
     },
@@ -178,3 +179,4 @@
         ]
     }
 }
+]
