@@ -1,3 +1,9 @@
+---
+layout: post
+title: Public services
+category: techniques
+permalink: /techniques/evasion/public_services
+---
 # `Public services - <technique ID>`
 
 The malware communicates with a public service such as Google or Dropbox. These services can be used for the staging of malware or C2 communication.
@@ -8,12 +14,17 @@ The malware communicates with a public service such as Google or Dropbox. These 
 * Google Drive
 * Dropbox
 * Box
+* AOL instant messenger
+* pCloud
+* Gmail
+* hmamail.com
 
 ## Malware/Threat actors
 
 | Name | Description | Year(s) | Source |
 | --- | --- | --- |
 | `Trojan.APT.Seinup` | - | - | - |
+| `APT37` | - | - | - |
 
 ## Mitigations
 

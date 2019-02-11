@@ -1,3 +1,9 @@
+---
+layout: post
+title: Remote Admin Tools
+category: techniques
+permalink: /techniques/actions_on_objective/remote_admin_tools
+---
 # `Remote administration tools - <technique ID>`
 
 Remote Administration tools like TeamViewer can be used to control a machine remotely. Tools like TeamViewer are legitamite applications that are signed and may be trusted by security controls.
@@ -6,7 +12,7 @@ Remote Administration tools like TeamViewer can be used to control a machine rem
 
 | Name | Description | Year(s) | Source |
 | --- | --- | --- | -- |
-| `TeamSpy` | For at least several years, a mysterious threat actor infiltrated and tracked, performed surveillance and stole data from governmental organisations, some private companies and human rights activists throughout the Commonwealth of Independent States (CIS) and Eastern European nations. Some parts of this operation extended into Western nations and the Middle East as well, with victims in sectors such as energy and heavy industry manufacturing. | 2008-2013 |  `CyberMonitor - theteamspystory_final_t2.pdf` |
+| `TeamSpy` |  - | - | - |
 
 ## Tools
 

@@ -1,3 +1,9 @@
+---
+layout: post
+title: Domain spoofing
+category: techniques
+permalink: /techniques/masquerade/domain_spoofing
+---
 # `Domain spoofing - <technique ID>`
 
 [Domain Spoofing](https://www.barracuda.com/glossary/domain-spoofing), a common form of phishing, occurs when an attacker appears to use a company’s domain to impersonate a company or one of its employees.

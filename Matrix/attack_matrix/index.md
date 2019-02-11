@@ -60,7 +60,8 @@ height: 100%;
     .theme{
         padding: 10px;
         font-weight: 700;
-        background: lightgray;
+        color: white;
+        background: DarkBlue ;
         min-height: 5%;
         max-height: 25px;
         margin: 0;
@@ -92,30 +93,4 @@ height: 100%;
 
     }
 </style>
-
-<script src="jquery-3.3.1.min.js"></script>
-<script>
-
-    $("a").click(function(){
-    $("table").each(function() {
-        var $this = $(this);
-        var newrows = [];
-        $this.find("tr").each(function(){
-            var i = 0;
-            $(this).find("td").each(function(){
-                i++;
-                if(newrows[i] === undefined) { newrows[i] = $("<tr></tr>"); }
-                newrows[i].append($(this));
-            });
-        });
-        $this.find("tr").remove();
-        $.each(newrows, function(){
-            $this.append(this);
-        });
-    });
-    
-    return false;
-});
-</script>
-
 

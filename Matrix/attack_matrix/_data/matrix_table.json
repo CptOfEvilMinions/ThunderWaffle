@@ -1,176 +1,197 @@
 {
     "Actions on objective":{
-        "enabled": false,
-        "file_loc": "themes/2019-02-01-actions_on_objective.md",
+        "enabled": true,
+        "file_loc": "themes/actions_on_objective",
         "Exfiltration": {
             "Id": "01",
-            "file_loc": "techniques/actions_on_objective/exfil.md",
+            "file_loc": "techniques/actions_on_objective/exfil",
+            "enabled": true
+        },
+        "Defacement": {
+            "Id": "01",
+            "file_loc": "techniques/actions_on_objective/defacement",
             "enabled": true
         }
     },
     "Command and control": {
         "enabled": true,
-        "file_loc": "themes/2019-02-01-command_n_control.md",
+        "file_loc": "themes/command_n_control",
         "Remote admin tools": {
             "Id": "01",
-            "file_loc": "techniques/command_and_control/2019-02-01-remote_admin_tools.md",
+            "file_loc": "techniques/actions_on_objective/remote_admin_tools",
             "enabled": true
         },
         "Listening services": {
             "Id": "02",
-            "file_loc": "techniques/command_and_control/2019-02-01-listening_service.md",
+            "file_loc": "techniques/command_and_control/listening_service",
             "enabled": true
         },
         "HTTP": {
             "Id": "02",
-            "file_loc": "techniques/command_and_control/2019-02-01-http.md",
+            "file_loc": "techniques/command_and_control/http",
+            "enabled": true
+        },
+        "DNS": {
+            "Id": "02",
+            "file_loc": "techniques/command_and_control/dns",
             "enabled": true
         }
     },
     "Delivery":{
         "enabled": true,
-        "file_loc": "themes/2019-02-01-delivery.md",
+        "file_loc": "themes/delivery",
         "Waterholing": {
             "Id":"03",
-            "file_loc": "techniques/delivery/2019-02-07-waterhole.md",
+            "file_loc": "techniques/delivery/waterhole",
             "enabled": true
         },
         "Phishing": {
             "Id":"03",
-            "file_loc": "techniques/delivery/2019-02-07-phishing.md",
+            "file_loc": "techniques/delivery/phishing",
+            "enabled": true
+        },
+        "Poisoned torrents": {
+            "Id":"03",
+            "file_loc": "techniques/delivery/poisoned_torrents",
             "enabled": true
         }
+
     },
     "DOS":{
-        "enabled": false,
-        "file_loc": "themes/2019-02-01-dos.md",
+        "enabled": true,
+        "file_loc": "themes/dos",
         "HTTP Flood": {
             "Id": "03",
-            "file_loc": "techniques/dos/2019-02-07-http_flood.md",
+            "file_loc": "techniques/dos/http_flood",
             "enabled": true
         }, 
         "TCP Flood": {
             "Id": "03",
-            "file_loc": "techniques/dos/2019-02-07-tcp_flood.md",
+            "file_loc": "techniques/dos/tcp_flood",
             "enabled": true
         },
         "UDP Flood": {
             "Id": "03",
-            "file_loc": "techniques/dos/2019-02-07-udp_flood.md",
+            "file_loc": "techniques/dos/udp_flood",
             "enabled": true
         }
     },
     "Evasion": {
         "enabled": true,
-        "file_loc": "themes/2019-02-01-evasion.md",
+        "file_loc": "themes/evasion",
         "Public services": {
             "Id": "03",
-            "file_loc": "techniques/evasion/2019-02-01-public_services.md",
+            "file_loc": "techniques/evasion/public_services",
             "enabled": true
         },
         "Custom obfuscation": {
             "Id": "03",
-            "file_loc": "techniques/evasion/2019-02-01-custom_obfuscation.md",
+            "file_loc": "techniques/evasion/custom_obfuscation",
             "enabled": true
         },
         "Custom protocol": {
             "Id": "03",
-            "file_loc": "techniques/evasion/2019-02-01-custom_protocol.md",
+            "file_loc": "techniques/evasion/custom_protocol",
             "enabled": true
         },
         "Encoding": {
             "Id": "03",
-            "file_loc": "techniques/evasion/2019-02-01-encoding.md",
+            "file_loc": "techniques/evasion/encoding",
             "enabled": true
         },
         "Encryption": {
             "Id": "03",
-            "file_loc": "techniques/evasion/2019-02-01-encryption.md",
+            "file_loc": "techniques/evasion/encryption",
             "enabled": true
         },
         "Compression": {
             "Id": "03",
-            "file_loc": "techniques/evasion/2019-02-01-compression.md",
+            "file_loc": "techniques/evasion/compression",
             "enabled": true
         }
     },
     "Initial compromise": {
         "enabled": true,
-        "file_loc": "themes/initial_compromise.md",
+        "file_loc": "themes/initial_compromise",
         "Exploit": {
             "Id": "03",
-            "file_loc": "techniques/initial_compromise/2019-02-01-exploit.md",
+            "file_loc": "techniques/initial_compromise/exploit",
             "enabled": true
         },
         "SQL injection": {
             "Id": "03",
-            "file_loc": "techniques/initial_compromise/2019-02-07-sql_injection.md",
+            "file_loc": "techniques/initial_compromise/sql_injection",
             "enabled": true
         }
     },
     "Lateral movement": {
         "enabled": true,
-        "file_loc": "themes/2019-02-01-lateral_movement.md",
+        "file_loc": "themes/lateral_movement",
         "WinRM": {
             "Id": "03",
-            "file_loc": "techniques/lateral_movement/2019-02-01-winrm.md",
+            "file_loc": "techniques/lateral_movement/winrm",
             "enabled": true
         },
         "Remote Desktop": {
             "Id": "03",
-            "file_loc": "techniques/lateral_movement/2019-02-01-remote_desktop.md",
+            "file_loc": "techniques/lateral_movement/remote_desktop",
             "enabled": true
         },
         "SMB": {
             "Id": "03",
-            "file_loc": "techniques/lateral_movement/2019-02-01-smb.md",
+            "file_loc": "techniques/lateral_movement/smb",
             "enabled": true
         },"SSH HiJacking": {
             "Id": "03",
-            "file_loc": "techniques/lateral_movement/2019-02-01-ssh_hijacking.md",
+            "file_loc": "techniques/lateral_movement/ssh_hijacking",
             "enabled": true
         },
         "WMI": {
             "Id": "03",
-            "file_loc": "techniques/lateral_movement/2019-02-01-wmi.md",
+            "file_loc": "techniques/lateral_movement/wmi",
             "enabled": true
         },
         "Exploits": {
             "Id": "03",
-            "file_loc": "techniques/lateral_movement/2019-02-01-exploits.md",
+            "file_loc": "techniques/lateral_movement/exploits",
             "enabled": true
         }
     },
     "Masquerade": {
         "enabled": true,
-        "file_loc": "themes/2019-02-01-masquerade.md",
+        "file_loc": "themes/masquerade",
         "Domain spoofing": {
             "Id": "0X",
-            "file_loc": "techniques/masquerade/2019-02-01-domain_spoofing.md",
+            "file_loc": "techniques/masquerade/domain_spoofing",
+            "enabled": true
+        },
+        "ARP spoofing": {
+            "Id": "0X",
+            "file_loc": "techniques/masquerade/arp_spoofing",
             "enabled": true
         }
     },
     "Recon and weaponization": {
         "enabled": false,
-        "file_loc": "themes/2019-02-01-recon_weapon.md"
+        "file_loc": "themes/recon_weapon"
        
     },
     "Internal recon": {
-        "enabled": false,
-        "file_loc": "themes/internal_recon.md",
+        "enabled": true,
+        "file_loc": "themes/internal_recon",
         "Network sniffing": {
             "Id": "0X",
-            "file_loc": "techniques/internal_recon/2019-02-07-network_sniffing.md",
+            "file_loc": "techniques/internal_recon/network_sniffing",
             "enabled": true
         }
     },
     "attack-theme-template": {
         "enabled": false,
-        "file_loc": "themes/template.md",
+        "file_loc": "themes/template",
         "technique-template":
         {
             "Id": "0X",
-            "file_loc": "techniques/template.md",
+            "file_loc": "techniques/template",
             "enabled": true
         }
     }

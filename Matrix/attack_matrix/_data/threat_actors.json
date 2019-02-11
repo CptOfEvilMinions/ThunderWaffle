@@ -161,6 +161,14 @@
             "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2014/EB-YetiJuly2014-Public.pdf"
         ]
     },
+    "APT37": {
+        "type": "threat actor",
+        "description": "A suspected North Korean cyber espionage group that we now track as APT37 (Reaper). Recent examination of this group’s activities by FireEye iSIGHT Intelligence reveals APT37 has expanded its operations in both scope and sophistication. APT37’s toolset, which includes access to zero-day vulnerabilities and wiper malware, combined with heightened tensions in Northeast Asia and North Korea’s penchant for norm breaking, means this group should be taken seriously.",
+        "years": "2014-2017",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2018/2018.02.20.APT37/rpt_APT37.pdf"
+        ]
+    },
     "template": {
         "type": "< threat actor/malware >",
         "description": "< Description of threat actor or malware >",

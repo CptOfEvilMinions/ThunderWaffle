@@ -1,3 +1,9 @@
+---
+layout: post
+title: Compression
+category: techniques
+permalink: /techniques/evasion/compression
+---
 # `Compression- <technique ID>`
 
 `<description of technique>`

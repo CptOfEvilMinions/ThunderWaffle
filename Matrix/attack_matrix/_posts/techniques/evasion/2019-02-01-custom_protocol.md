@@ -1,3 +1,9 @@
+---
+layout: post
+title: Custom protocol
+category: techniques
+permalink: /techniques/evasion/custom_protocol
+---
 # `Custom encryption - <technique ID>`
 
 Threat actors may create custom protcols to thwart security controls from reading the data in transit.

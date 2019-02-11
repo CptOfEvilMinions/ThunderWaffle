@@ -1,4 +1,9 @@
-
+---
+layout: post
+title: Encryption
+category: techniques
+permalink: /techniques/evasion/encryption
+---
 # `Encryption - <technique ID>`
 
 Threat actors may utilize encryption to thwart security controls from reading the data in transit.

@@ -40,6 +40,14 @@
 ## Adding column
 
 
+## To do
+
+* dos/udp_flood - Resize photo
+* Make matrix pretty
+* Make each technique/theme page pretty
+* Render threat actor table for each technique
+* Theme and technique pages in top right
+
 ## Resources/Sources
 
 * [Youtube - Introduction | Jekyll - Static Site Generator | Tutorial 1](https://www.youtube.com/watch?v=T1itpPvFWHI&list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB&index=1)

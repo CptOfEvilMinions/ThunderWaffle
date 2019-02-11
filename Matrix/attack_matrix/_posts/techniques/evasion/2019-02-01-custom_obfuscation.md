@@ -1,3 +1,9 @@
+---
+layout: post
+title: Custom obfuscation
+category: techniques
+permalink: /techniques/evasion/custom_obfuscation
+---
 # `Custom encryption - <technique ID>`
 
 Threat actors may create custom obfuscation(encryption, encoding) to thwart defenders.

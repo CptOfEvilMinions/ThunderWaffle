@@ -1,3 +1,9 @@
+---
+layout: post
+title: Remote Desktop
+category: techniques
+permalink: /techniques/lateral_movement/remote_desktop
+---
 # `Remote desktop - <technique ID>`
 
 Attackers will use valid credentials to move laterally in enviornment by utilizing remote desktop.

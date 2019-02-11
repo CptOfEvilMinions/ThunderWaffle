@@ -1,3 +1,9 @@
+---
+layout: post
+title: SSH HiJacking
+category: techniques
+permalink: /techniques/lateral_movement/ssh_hijacking
+---
 # `SSH Hijacking - <technique ID>`
 
 Secure Shell (SSH) is a standard means of remote access on Linux and macOS systems. It allows a user to connect to another system via an encrypted tunnel, commonly authenticating through a password, certificate or the use of an asymmetric encryption key pair.
