@@ -14,7 +14,7 @@ permalink: /techniques/initial_compromise/sql_injection
 
 ## Malware/Threat actors
 
-{% assign malwares = 'Operation Cleaver' | split: ',' %}
+{% assign malwares = 'Operation Cleaver,HURRICANE PANDA' | split: ',' %}
 
 {% include threat_actor_table.html %}
 

@@ -21,10 +21,11 @@ permalink: /techniques/evasion/public_services
 * pCloud
 * Gmail
 * hmamail.com
+* Microsoft OneDrive
 
 ## Malware/Threat actors
 
-{% assign malwares = 'Trojan.APT.Seinup,APT37' | split: ',' %}
+{% assign malwares = 'Trojan.APT.Seinup,APT37,Dukes' | split: ',' %}
 
 {% include threat_actor_table.html %}
 

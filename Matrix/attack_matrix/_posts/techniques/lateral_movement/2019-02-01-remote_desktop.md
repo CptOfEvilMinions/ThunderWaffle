@@ -15,7 +15,7 @@ permalink: /techniques/lateral_movement/remote_desktop
 
 ## Malware/Threat actors
 
-{% assign malwares = 'Gh0st Rat' | split: ',' %}
+{% assign malwares = 'Gh0st Rat,HURRICANE PANDA' | split: ',' %}
 
 {% include threat_actor_table.html %}
 

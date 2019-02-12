@@ -13,7 +13,7 @@ permalink: /techniques/delivery/poisoned_torrents
 
 ## Malware/Threat actors
 
-{% assign malwares = 'Jaku,APT37' | split: ',' %}
+{% assign malwares = 'Jaku,APT37,Dukes' | split: ',' %}
 
 {% include threat_actor_table.html %}
 

@@ -170,12 +170,61 @@
             "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2018/2018.02.20.APT37/rpt_APT37.pdf"
         ]
     },
+    "GRIZZLY STEPPE": {
+        "type": "threat actor",
+        "description": "Russian malicious cyber activity",
+        "years": "2015-2018",
+        "sources": [
+            "https://www.us-cert.gov/GRIZZLY-STEPPE-Russian-Malicious-Cyber-Activity",
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2017/2017.02.10.Enhanced_Analysis_of_GRIZZLY_STEPPE/AR-17-20045_Enhanced_Analysis_of_GRIZZLY_STEPPE_Activity.pdf"
+        ]
+    },
+    "Operation Potato": {
+        "type": "threat actor",
+        "description": "Among the victims that we were able to identify, the most notable high-value targets include Ukrainian government and military entities and one of the major Ukrainian news agencies. The malware was also used to spy on members of MMM, a financial pyramid scheme popular in Russia and Ukraine.",
+        "years": "2011-2015",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2015/2015.07.30.Operation-Potao-Express/Operation-Potao-Express_final_v2.pdf"
+        ]
+    },
+    "PlugX": {
+        "type": "malware",
+        "description": "PlugX was by far the most used malware variant for targeted activity during 2014. It proliferated greatly amongst China-based targeted intrusion adversaries and now appears to be the tool of choice for many. The malware has been around for years and has been used by multiple Chinese actors for quite some time; however, the frequency of PlugX use during 2014 revealed just how prominent it is.",
+        "years": "2014",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2015/2015.02.10.CrowdStrike_GlobalThreatIntelReport_2014/GlobalThreatIntelReport.pdf"
+        ]
+    },
+    "Charming Kitten": {
+        "type": "threat actor",
+        "description": "Iran-based adversary that leverages fake personas on social networking sites in order to conduct social engineering and ultimately targeted attacks against desired targets.",
+        "years": "2014",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2015/2015.02.10.CrowdStrike_GlobalThreatIntelReport_2014/GlobalThreatIntelReport.pdf"
+        ]
+    },
+    "HURRICANE PANDA": {
+        "type": "threat actor",
+        "description": "HURRICANE PANDA is an advanced China-based adversary actively targeting Internet services, engineering, and aerospace companies.",
+        "years": "2014",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2015/2015.02.10.CrowdStrike_GlobalThreatIntelReport_2014/GlobalThreatIntelReport.pdf"
+        ]
+    },
+    "Dukes": {
+        "type": "ThreatActor",
+        "description": "the Dukes, a well-resourced, highly dedicated and organized cyberespionage group that we believe has been working for the Russian Federation since at least 2008 to collect intelligence in support of foreign and security policy decision-making.",
+        "years": "2008-2015",
+        "sources": [
+            "https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections/blob/master/2015/2015.09.17.duke_russian/dukes_whitepaper.pdf"
+        ]
+    },
     "template": {
         "type": "< threat actor/malware >",
         "description": "< Description of threat actor or malware >",
         "years": "< Known years active >",
         "sources": [
-            "<URL to resource>"
+            "<Sources>"
         ]
     }
 }
