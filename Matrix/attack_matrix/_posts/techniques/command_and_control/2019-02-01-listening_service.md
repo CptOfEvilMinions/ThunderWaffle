@@ -3,9 +3,10 @@ layout: post
 enabled: true
 title: "Listening Service"
 category: techniques
-theme: command_and_control
+theme: "Command and control"
 Id: 04
 description: ""
+permalink: /techniques/command_and_control/listening_service
 ---
 {{ page. description }}
 

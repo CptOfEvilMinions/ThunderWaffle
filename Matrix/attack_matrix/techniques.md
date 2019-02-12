@@ -8,7 +8,7 @@ permalink: /technqiues
 | --- | --- | --- | --- |
 {%- for post in site.categories.techniques %}
     {%- if post.enabled == true %}
-        | <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> | {{ post.Id }} | {{ post.theme }} | {{ post.description }} |
+        | <a href="{{ site.url }}{{ post.permalink }}">{{ post.title }}</a> | {{ post.Id }} | {{ post.theme }} | {{ post.description }} |
     {%- endif -%}
 {%- endfor -%}
 

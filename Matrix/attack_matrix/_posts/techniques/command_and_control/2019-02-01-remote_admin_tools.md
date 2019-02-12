@@ -3,11 +3,12 @@ layout: post
 enabled: true
 title: Remote Admin Tools
 category: techniques
-permalink: /techniques/actions_on_objective/remote_admin_tools
+theme: "Command and control"
+Id: 05
+description: 'Remote Administration tools like TeamViewer can be used to control a machine remotely. Tools like TeamViewer are legitamite applications that are signed and may be trusted by security controls.'
+permalink: /techniques/commmand_and_control/remote_admin_tools
 ---
-# `Remote administration tools - <technique ID>`
-
-Remote Administration tools like TeamViewer can be used to control a machine remotely. Tools like TeamViewer are legitamite applications that are signed and may be trusted by security controls.
+{{ page.description }}
 
 ## Malware/Threat actors
 
