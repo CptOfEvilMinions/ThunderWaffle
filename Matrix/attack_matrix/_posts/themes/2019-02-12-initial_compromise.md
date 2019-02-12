@@ -3,18 +3,10 @@ layout: post
 enabled: true
 title: Initial compromise
 category: themes
-permalink: /themes/initial_compromise
 description: "The attacker successfully executes malicious code on one or more systems. This most likely occurs through social engineering (most often spear phishing), by exploiting a vulnerability on an Internet-facing system, or by any other means necessary."
+permalink: 'themes/initial_compromise'
 ---
-# Initial compromise
-
 {{ page.description }}
-
-## Categories
-
-
-## Well known techneqiues
-
 
 ## Resources/Sources
 

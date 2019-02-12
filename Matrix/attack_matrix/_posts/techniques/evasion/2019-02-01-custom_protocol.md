@@ -18,7 +18,7 @@ Threat actors may create custom protcols to thwart security controls from readin
 
 {% assign malwares = 'Wild Neutron,icefog,APT1,Duqu Trojan,Turbo' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

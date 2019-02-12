@@ -13,7 +13,7 @@ permalink: /techniques/internal_recon/network_sniffing
 
 {% assign malwares = 'Operation Cleaver' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

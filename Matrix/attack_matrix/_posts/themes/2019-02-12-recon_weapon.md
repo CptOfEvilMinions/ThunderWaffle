@@ -5,10 +5,8 @@ title: Recon and weaponization
 category: themes
 permalink: /themes/recon_weapon
 description: "The attacker conducts research on a target. The attacker identifies targets (both systems and people) and determines his attack methodology. The attacker may look for Internet-facing services or individuals to exploit."
+permalink: 'themes/recon_and_weaponization'
 ---
-
-# Attack theme
-
 {{ page.description }}
 
 ## Activities

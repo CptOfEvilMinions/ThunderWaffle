@@ -15,7 +15,7 @@ This can be done by sending emails with false domain names which appear legitima
 
 {% assign malwares = 'Operation Hangover' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

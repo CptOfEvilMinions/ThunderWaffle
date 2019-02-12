@@ -15,7 +15,7 @@ Threat actors may utilize encryption to thwart security controls from reading th
 
 {% assign malwares = 'ETSO,Wild Neutron,Energetic Bear,Jaku' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

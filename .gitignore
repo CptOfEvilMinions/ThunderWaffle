@@ -3,7 +3,7 @@
 .DS_Store
 env/
 venv/
-group_vars/all.yml
-group_vars/logging.yml
-group_vars/docker.yml
-Resources/pdf_keyword_extractor/*.ini
+Infrastructure/group_vars/all.yml
+Infrastructure/group_vars/logging.yml
+Infrastructure/group_vars/docker.yml
+Contributions/pdf_keyword_extractor/*.ini

@@ -14,7 +14,7 @@ description: '[Website defacement](https://en.wikipedia.org/wiki/Website_defacem
 <!-- Threat actors table -->
 {% assign malwares = 'Operation Cleaver' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

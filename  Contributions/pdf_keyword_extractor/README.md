@@ -1,6 +1,4 @@
-# Resources
-
-## PDF extractor
+# PDF extractor
 
 This Python tool will create a list of PDFs for a list of keywords.
 
@@ -27,9 +25,6 @@ This Python tool will create a list of PDFs for a list of keywords.
 * [Github - aptnotes/data](https://github.com/aptnotes/data)
 * [Github - CyberMonitor/APT_CyberCriminal_Campagin_Collections](https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections)
 
-## Whitepapers
-
-## Blog posts
 
 ## Resources/Sources
 
