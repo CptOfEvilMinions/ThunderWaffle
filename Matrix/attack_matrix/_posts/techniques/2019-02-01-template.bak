@@ -16,8 +16,6 @@ description: '<description>'
 <!-- Threat actors table -->
 {% assign malwares = 'Operation Cleaver' | split: ',' %}
 
-{% include threat_actor_table.md %}
-
 ## Mitigations
 
 `<Mitigation techniques>`
