@@ -24,7 +24,7 @@ The malware communicates with a public service such as Google or Dropbox. These 
 
 {% assign malwares = 'Trojan.APT.Seinup,APT37' | split: ',' %}
 
-{% include_relative threat_actor_table.md %}
+{% capture my_include %}{% include threat_actor_table.md %}{% endcapture %}{{ my_include | markdownify }}
 
 ## Mitigations
 
