@@ -3,9 +3,12 @@ layout: post
 enabled: true
 title: Compression
 category: techniques
+theme: Evasion
+Id: 13
+description: 'Compression is the act of reducing the number of bits needed to represent data. Attackers may use compression to obfuscate the data being transfered, bundle malware and tools, or a faster upload during exfiltration'
 permalink: /techniques/evasion/compression
 ---
-# `Compression- <technique ID>`
+{{ page. description }}
 
 `<description of technique>`
 
@@ -29,4 +32,4 @@ permalink: /techniques/evasion/compression
 
 ## Resources/Sources
 
-* `[<Source name>](<Source link>)`
+* [Data compression](https://searchstorage.techtarget.com/definition/compression)

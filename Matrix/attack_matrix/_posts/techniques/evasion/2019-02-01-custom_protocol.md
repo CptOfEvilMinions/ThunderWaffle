@@ -3,11 +3,18 @@ layout: post
 enabled: true
 title: Custom protocol
 category: techniques
+permalink: 
+
+layout: post
+enabled: true
+title: 'Custom protocol'
+category: techniques
+theme: Evasion
+Id: 15
+description: 'Threat actors may create custom protocols to thwart security controls from reading/interpreting the data in transit.'
 permalink: /techniques/evasion/custom_protocol
 ---
-# `Custom encryption - <technique ID>`
-
-Threat actors may create custom protcols to thwart security controls from reading the data in transit.
+{{ page. description }}
 
 ## Common types
 
@@ -26,7 +33,7 @@ Threat actors may create custom protcols to thwart security controls from readin
 
 ## Detections
 
-During the encryption handshake in protocols like TLS, SSL, and SSH look for encryption suites and ciphers that are new to the enviornment.
+During the encryption handshake in protocols like TLS, SSL, and SSH look for encryption suites and ciphers that are new to the environment.
 
 ## Toolkit
 

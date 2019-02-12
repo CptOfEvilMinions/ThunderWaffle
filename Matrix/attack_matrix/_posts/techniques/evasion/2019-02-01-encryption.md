@@ -3,11 +3,14 @@ layout: post
 enabled: true
 title: Encryption
 category: techniques
+theme: Evasion
+Id: 17
+description: 'Threat actors may utilize encryption to thwart security controls from reading/interpreting the data in transit.'
 permalink: /techniques/evasion/encryption
 ---
-# `Encryption - <technique ID>`
+{{ page. description }}
 
-Threat actors may utilize encryption to thwart security controls from reading the data in transit.
+
 
 ## Common types
 

@@ -3,11 +3,14 @@ layout: post
 enabled: true
 title: HTTP Flood
 category: techniques
+theme: DOS
+Id: 10
+description: 'An [HTTP flood attack](https://www.cloudflare.com/learning/ddos/http-flood-ddos-attack/) is a type of volumetric distributed denial-of-service (DDoS) attack designed to overwhelm a targeted server with HTTP requests. Once the target has been saturated with requests and is unable to respond to normal traffic, denial-of-service will occur for additional requests from actual users.'
 permalink: /techniques/dos/http_flood
 ---
-# `HTTP flood- <technique ID>`
+{{ page. description }}
 
-An [HTTP flood attack](https://www.cloudflare.com/learning/ddos/http-flood-ddos-attack/) is a type of volumetric distributed denial-of-service (DDoS) attack designed to overwhelm a targeted server with HTTP requests. Once the target has been saturated with requests and is unable to respond to normal traffic, denial-of-service will occur for additional requests from actual users.
+
 
 ## Malware/Threat actors
 

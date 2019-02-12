@@ -1,13 +1,16 @@
 ---
 layout: post
 enabled: true
-title: Custom obfuscation
+title: 'Custom obfuscation'
 category: techniques
+theme: Evasion
+Id: 14
+description: 'Threat actors may create custom obfuscation(encryption, encoding, and hashing) mechaniss to thwart defenders.'
 permalink: /techniques/evasion/custom_obfuscation
 ---
-# `Custom encryption - <technique ID>`
+{{ page. description }}
 
-Threat actors may create custom obfuscation(encryption, encoding) to thwart defenders.
+
 
 ## Common types
 

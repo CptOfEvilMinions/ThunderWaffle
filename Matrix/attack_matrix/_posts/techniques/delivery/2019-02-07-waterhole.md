@@ -33,7 +33,7 @@ permalink: /techniques/delivery/wateringhole
 
 ## Detections
 
-* Collect user-agents and alert on oold versions of flash and IE
+* Collect user-agents and alert on old versions of flash and IE
 
 ## Toolkit
 

@@ -24,7 +24,7 @@ permalink: /techniques/actions_on_objective/defacement
 
 ## Detections
 
-* A continous service that monitors your website for changes.
+* A continuous service that monitors your website for changes.
 * A large number of HTTP requests to a new resource
 * A change in packet size when requesting a resource
 * Webserver making external requests for resources
