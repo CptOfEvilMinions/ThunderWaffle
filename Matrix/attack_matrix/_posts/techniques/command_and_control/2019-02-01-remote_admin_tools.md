@@ -13,7 +13,7 @@ Remote Administration tools like TeamViewer can be used to control a machine rem
 
 {% assign malwares = 'TeamSpy' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include_relative threat_actor_table.md %}
 
 ## Tools
 

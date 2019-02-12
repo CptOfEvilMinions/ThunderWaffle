@@ -13,7 +13,7 @@ permalink: /techniques/initial_compromise/sql_injection
 
 {% assign malwares = 'Operation Cleaver' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include_relative threat_actor_table.md %}
 
 ## Mitigations
 

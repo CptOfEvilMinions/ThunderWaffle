@@ -13,7 +13,7 @@ permalink: /techniques/masquerade/arp_spoofing
 
 {% assign malwares = 'SIDEWINDER,Operation Cleaver' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include_relative threat_actor_table.md %}
 
 ## Mitigations
 

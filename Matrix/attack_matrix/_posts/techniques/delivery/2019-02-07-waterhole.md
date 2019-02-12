@@ -21,7 +21,7 @@ A [watering hole attack](https://searchsecurity.techtarget.com/definition/wateri
 
 {% assign malwares = 'Operation Dust Storm,ZooPark,Operation Cleaver,Epic Turla,Energetic Bear' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include_relative threat_actor_table.md %}
 
 ## Mitigations
 

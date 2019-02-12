@@ -15,7 +15,7 @@ description: ""
 
 {% assign malwares = 'Gh0st Rat' | split: ',' %}
 
-{% include threat_actor_table.md %}
+{% include_relative threat_actor_table.md %}
 
 ## Mitigations
 
