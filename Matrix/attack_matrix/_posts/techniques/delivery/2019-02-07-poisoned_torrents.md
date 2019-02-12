@@ -13,7 +13,7 @@ The technique of threat actors deploying torrent files onto torrent sites that a
 
 {% assign malwares = 'Jaku,APT37' | split: ',' %}
 
-{% capture my_include %}{% include threat_actor_table.md %}{% endcapture %}{{ my_include | markdownify }}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

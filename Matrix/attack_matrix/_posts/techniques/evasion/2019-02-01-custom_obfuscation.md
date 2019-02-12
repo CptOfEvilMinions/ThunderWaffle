@@ -19,7 +19,7 @@ Threat actors may create custom obfuscation(encryption, encoding) to thwart defe
 
 {% assign malwares = 'TeamSpy,Wild Neutron' | split: ',' %}
 
-{% capture my_include %}{% include threat_actor_table.md %}{% endcapture %}{{ my_include | markdownify }}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

@@ -13,7 +13,7 @@ An [HTTP flood attack](https://www.cloudflare.com/learning/ddos/http-flood-ddos-
 
 {% assign malwares = 'DarkComet' | split: ',' %}
 
-{% capture my_include %}{% include threat_actor_table.md %}{% endcapture %}{{ my_include | markdownify }}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

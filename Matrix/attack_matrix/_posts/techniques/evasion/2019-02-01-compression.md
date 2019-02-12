@@ -13,7 +13,7 @@ permalink: /techniques/evasion/compression
 
 {% assign malwares = 'Nettraveler,Jaku' | split: ',' %}
 
-{% capture my_include %}{% include threat_actor_table.md %}{% endcapture %}{{ my_include | markdownify }}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 

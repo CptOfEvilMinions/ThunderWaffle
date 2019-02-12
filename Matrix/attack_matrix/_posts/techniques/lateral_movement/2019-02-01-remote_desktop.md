@@ -13,7 +13,7 @@ Attackers will use valid credentials to move laterally in enviornment by utilizi
 
 {% assign malwares = 'Gh0st Rat' | split: ',' %}
 
-{% capture my_include %}{% include threat_actor_table.md %}{% endcapture %}{{ my_include | markdownify }}
+{% include threat_actor_table.html %}
 
 ## Mitigations
 
