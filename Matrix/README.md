@@ -49,7 +49,6 @@ description: "<description>"
 ## Malware/Threat actors
 {% assign malwares = '<List of threat actors(comma seperated) in threat_actors.json>' | split: ',' %}
 
-{% include threat_actor_table.html %}
 ```
 
 ### Creating new theme
