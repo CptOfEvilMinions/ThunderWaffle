@@ -16,7 +16,7 @@ permalink: /themes/
         </tr>
     </thead>
     <tbody>
-        {%- for post in site.categories.techniques %}
+        {%- for post in site.categories.themes %}
         {%- if post.enabled == true %}
         <tr>
         {% assign tmp = threat_actor[1] -%}

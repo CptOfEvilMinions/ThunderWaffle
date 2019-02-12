@@ -3,29 +3,26 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
---- 
-
+---
 
 <div class="flexbox">
-{% for theme in site.posts %}
-    {% assign cur_theme = theme.title %}
-
-    {% if theme.category == "themes" and theme.enabled == true %}
-
+{% for theme in site.categories.themes %}
+    {% if theme.enabled == true %}
     <div class="col">
         <p class="theme"> {{ theme.title }}</p>
         <div class="techniques">
-            {% for technique in site.posts %}
-                {% if post.category == "techniques" and post.theme == cur_theme %}
-                    <a class="technique" href="{{ technique[1]['file_loc'] }}">{{ post.title }}</a>
-                {% endif %}
-            {% endfor %}
-        </div>
+        {% for technique in site.categories.techniques %}
+            {% if technique.enabled == true and technique.theme == theme.title %}
+                <a class="technique" href="{{ site.url }}{{ technique.permalink }}">{{ technique.title }}</a>
+            {% endif %}
+        {% endfor %}
     </div>
-    {% endif %}
+</div>
+{% endif %}
 
 {% endfor %}
 </div>
+
 
 <style>
     table, caption, thead, tbody, td, tr{
@@ -56,7 +53,7 @@ height: 100%;
         padding: 10px;
         font-weight: 700;
         color: white;
-        background: DarkBlue ;
+        background: DodgerBlue  ;
         min-height: 5%;
         max-height: 25px;
         margin: 0;

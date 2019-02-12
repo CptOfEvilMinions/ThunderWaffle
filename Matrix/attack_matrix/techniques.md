@@ -5,11 +5,10 @@ permalink: /techniques
 ---
 <table>
     <colgroup>
-        <col width="1%" />
-        <col width="1%" />
-        <col width="1%" />
-        <col width="2%" />
         <col width="5%" />
+        <col width="5%" />
+        <col width="10%" />
+        <col width="80%" />
     </colgroup>
     <thead>
         <tr class="header">
