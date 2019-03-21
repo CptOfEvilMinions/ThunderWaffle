@@ -34,6 +34,38 @@
   when: bro_compile.stat.exists == False
 
 ####################################################################
+# Install/Setup GeoIP
+#
+# If you see an error message similar to “Bro was not configured for GeoIP support”, 
+# then you need to rebuild Bro and make sure it is linked against libmaxminddb. Normally, 
+# if libmaxminddb is installed correctly then it should automatically be found when 
+# building Bro. If this doesn’t happen, then you may need to specify the path to the 
+# libmaxminddb installation (e.g. ./configure --with-geoip=<path>).
+#
+# https://docs.zeek.org/en/stable/frameworks/geoip.html
+####################################################################
+- name: Stat GeoIP database
+  stat:
+    path: '/usr/share/GeoIP/GeoLite2-City.mmdb'
+  register: geoip_db
+  when: bro_geoip == True
+
+- name: Install libmaxminddb
+  package: 
+    name: '{{ item }}'
+    state: latest
+  with_items:
+    - libmaxminddb-dev
+  when: bro_geoip == True
+
+- name: Download GeoIP database
+  unarchive:
+    src: '{{ bro_geoip_db_url }}'
+    dest: '/usr/share/GeoIP/'
+    remote_src: yes
+  when: geoip_db.stat.exists == False and bro_geoip == True
+
+####################################################################
 # Compile BRO/Zeek from source
 ####################################################################
 - name: Debug msg
@@ -50,6 +82,12 @@
     - 'make'
     - 'make install'
   when: bro_compile.stat.exists == False
+
+- name: Test GeoIP
+  shell: './bro -e "print lookup_location(8.8.8.8);"'
+  args:
+    chdir: '{{ bro_base }}/bin'
+  when: bro_geoip == True 
 
 ####################################################################
 # Create Bro user and set perms
@@ -86,7 +124,7 @@
 ####################################################################
 - name: 'Copy BRO configs'
   template:
-    src: 'conf/bro/{{ item }}'
+    src: 'conf/monitoring/bro/{{ item }}'
     dest: '{{ bro_base }}/etc/{{ item }}'
     owner: '{{ bro_user }}'
     group: '{{ bro_user }}'
@@ -144,7 +182,7 @@
     owner: root
     group: bro
   with_fileglob:
-    - 'conf/bro/scripts/*'
+    - 'conf/monitoring/bro/scripts/*'
   when: bro_custom_scripts == True
 
 - name: Add commnet for custom scripts 
@@ -158,7 +196,7 @@
     path: '{{ bro_base }}/share/bro/site/local.bro'
     line: '@load scripts/{{ item | basename }}'
   with_fileglob:
-    - 'conf/bro/scripts/*'
+    - 'conf/monitoring/bro/scripts/*'
   when: bro_custom_scripts == True
 
 ####################################################################
@@ -175,7 +213,7 @@
 ####################################################################
 - name: Copy SystemD module
   template:
-    src: conf/bro/bro.service
+    src: conf/monitoring/bro/bro.service
     dest: /etc/systemd/system/bro.service
     owner: root
     group: root
