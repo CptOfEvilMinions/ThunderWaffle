@@ -10,8 +10,11 @@
     1. `bro_mail_to` - Location to send e-mails
 1. `vim hosts.yml` and under "[bro]" set:
     1. `ansible_host` - Set to IP addr of remote host
-1. `ansible-playbook -i hosts.yml deploy_bro.yml -u <username> -K`
+1. `ansible-playbook -i hosts.ini deploy_bro.yml -u <username> -K`
     1. Be patient the make process may take 20+ mins
+
+## Supported OSes
+* Ubuntu Server 18.04.1 64-bit
 
 ## Resources/Sources
 

@@ -17,6 +17,8 @@
     - python-dev 
     - swig 
     - zlib1g-dev
+    - tcpdump
+    - jq
 
 ####################################################################
 # Download Zeek source code
@@ -63,6 +65,7 @@
     src: '{{ bro_geoip_db_url }}'
     dest: '/usr/share/GeoIP/'
     remote_src: yes
+    extra_opts: [--strip-components=1]
   when: geoip_db.stat.exists == False and bro_geoip == True
 
 ####################################################################
@@ -107,6 +110,17 @@
     - 'cap_net_raw+eip'
     - 'cap_net_admin+eip'
 
+- name: Enable BRO promiscious interface
+  shell: ip link set dev {{ bro_promiscuous_interface }} up
+  when: bro_management_interface != bro_promiscuous_interface
+
+- name: Enable BRO promiscious interface on reboot
+  cron:
+    name: "Enale BRO monitoring interface"
+    special_time: reboot
+    job: "ip link set dev {{ bro_promiscuous_interface }} up"
+  when: bro_management_interface != bro_promiscuous_interface
+
 - name: Set Bro base dir perms
   file:
     path: '{{ bro_base }}'
@@ -124,7 +138,7 @@
 ####################################################################
 - name: 'Copy BRO configs'
   template:
-    src: 'conf/monitoring/bro/{{ item }}'
+    src: 'conf/bro/{{ item }}'
     dest: '{{ bro_base }}/etc/{{ item }}'
     owner: '{{ bro_user }}'
     group: '{{ bro_user }}'
@@ -182,7 +196,7 @@
     owner: root
     group: bro
   with_fileglob:
-    - 'conf/monitoring/bro/scripts/*'
+    - 'conf/bro/scripts/*'
   when: bro_custom_scripts == True
 
 - name: Add commnet for custom scripts 
@@ -196,7 +210,7 @@
     path: '{{ bro_base }}/share/bro/site/local.bro'
     line: '@load scripts/{{ item | basename }}'
   with_fileglob:
-    - 'conf/monitoring/bro/scripts/*'
+    - 'conf/bro/scripts/*'
   when: bro_custom_scripts == True
 
 ####################################################################
@@ -213,7 +227,7 @@
 ####################################################################
 - name: Copy SystemD module
   template:
-    src: conf/monitoring/bro/bro.service
+    src: conf/bro/bro.service
     dest: /etc/systemd/system/bro.service
     owner: root
     group: root
