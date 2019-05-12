@@ -1,0 +1,13 @@
+version: '2.2'
+services:
+  caldera:
+    container_name: ThunderWaffle-caldera
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile-Caldera
+    volumes:
+      - ./conf/caldera/local.yml:/opt/caldera/conf/local.yml
+    ports:
+      - 8888:8888
+      - 8880:8880

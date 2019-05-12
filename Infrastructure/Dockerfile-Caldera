@@ -1,0 +1,21 @@
+FROM ubuntu:18.04
+
+# Install things
+RUN apt-get update -y && apt-get install python3 python3-pip git -y
+
+# Create user 
+RUN useradd -ms /bin/bash caldera
+
+# Get Caldera
+RUN cd /opt && \
+    git clone https://github.com/mitre/caldera.git --recursive && \
+    cd caldera && \
+    pip3 install -r requirements.txt 
+
+WORKDIR /opt/caldera
+
+RUN chown -R caldera:caldera /opt/caldera
+
+USER caldera
+
+CMD ["python3","server.py","-E","local"]
