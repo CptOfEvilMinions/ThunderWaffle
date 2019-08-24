@@ -1,0 +1,19 @@
+remote exploit
+sql injection, sql inject
+udp flood, udp ddos
+http flood, http ddos
+tcp flood, tcp ddos
+public services, dropbox, google drive, gdrive, aws s3, aws ec2, cloudfront, office365
+anonymous services, tor, i2p
+public scanning services, shodan, censys, zoomeye, HaveIbeenPwned, BuiltWith, Google cache, Google indexing, Google dork, Maltego, recon-ng, SpiderFoot
+WinRM, Windows remote management, ps remoting, powershell remoting, remote powershell, pywinrm, PSSession, Invoke-Command
+SSH Hijacking, ssh lateral movement, lateral movement ssh
+service enumeration, service enum, nmap -sV, network enumeration
+trusted third party
+Domain spoofing
+arp spoofing, apr poisoning
+poisoned torrent, torrent, torrenting
+certificate impersonation, cert impersonation
+reverse rdp tunnel, reverse remote desktop
+malicious stager
+network sniffing, netowrk sniffer, wireshark, tcpdump, packet capture, 

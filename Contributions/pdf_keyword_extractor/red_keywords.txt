@@ -1,7 +1,7 @@
 public scanning services, shodan, censys, zoomeye
 vulnerability scanning, vuln scanning, vulnerability scanner, vuln scanner, nexpose, nessus, openvas
 wmi, windows management instrumentation
-winrm, windows remote management, psremoting, powershell remoting, 5986, 5985
+winrm, windows remote management, psremoting, powershell remoting, ps remoting
 ssh hijacking
 remote desktop, rdp
 exploit
@@ -21,7 +21,8 @@ tcp flood
 http flood
 poisoned torrents
 peer to peer, peer-to-peer, p2p
-IRC
+Internet relay chat
+Server message blocl, SMB
 ICMP
 DNS
 webshell

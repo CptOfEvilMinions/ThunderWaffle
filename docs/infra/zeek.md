@@ -1,6 +1,6 @@
-# Setup Bro/Zeek
+# Install/Setup Bro/Zeek
 
-## Setup Bro
+## Setup Zeek
 
 1. `vim group_vars/logging.yml` and set:
     1. `bro_management_interface` - Interface to access Bro box via SSH
