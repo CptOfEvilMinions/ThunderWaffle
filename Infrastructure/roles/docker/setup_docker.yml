@@ -57,10 +57,6 @@
     state: started
     enabled: yes
 
-- name: 'Init Docker swarm'
-  shell: docker swarm init --advertise-addr {{ ansible_default_ipv4.address }}
-  ignore_errors: true
-
 - name: Install docker-compose
   pip:
     name: docker-compose

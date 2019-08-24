@@ -38,7 +38,7 @@
   when: stat_dhparam.stat.exists == False
 
 - name: Generate self signed cert
-  shell: openssl req -new -nodes -x509 -days 3650 -subj "/C={{ cert_country }}/ST={{ cert_state }}/L={{ cert_local }}/O={{ cert_org }}/CN={{ hostname }}.{{ base_domain }}" -keyout {{ docker_path }}/splunk/certs/nginx-selfsigned.key -out {{ docker_path }}/splunk/certs/nginx-selfsigned.crt
+  shell: openssl req -new -nodes -x509 -days 3650 -subj "/C={{ cert_country }}/ST={{ cert_state }}/L={{ cert_local }}/O={{ cert_org }}/CN=splunk{{ base_domain }}" -keyout {{ docker_path }}/splunk/certs/nginx-selfsigned.key -out {{ docker_path }}/splunk/certs/nginx-selfsigned.crt
   when: stat_dhparam.stat.exists == False
 
 - name: Copy NGINX conf
@@ -55,7 +55,7 @@
     dest: '{{ docker_path }}/splunk/build/docker-compose.yml'
 
 - name: Spin up Splunk
-  docker_service:
+  docker_compose:
     project_src: '{{ docker_path }}/splunk/build'
     project_name: splunkstack
 

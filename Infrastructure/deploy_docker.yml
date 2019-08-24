@@ -1,6 +1,0 @@
-- hosts: docker
-  become: yes
-  become_user: root
-  tasks:
-    - import_tasks: roles/setup_hostname.yml
-    - import_tasks: roles/docker/setup_docker_swarm.yml

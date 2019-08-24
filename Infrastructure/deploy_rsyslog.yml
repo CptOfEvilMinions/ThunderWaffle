@@ -1,6 +1,0 @@
-- hosts: splunk
-  become: yes
-  become_user: root
-  tasks:
-    - include_vars: group_vars/logging.yml
-    - import_tasks: roles/rsyslog/setup_rsyslog.yml
