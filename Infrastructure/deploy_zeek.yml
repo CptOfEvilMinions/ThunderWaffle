@@ -1,0 +1,8 @@
+- hosts: zeek
+  become: yes
+  become_user: root
+  tasks:
+    - include_vars: 'group_vars/sec_tools.yml'
+    #- import_tasks: 'roles/zeek/setup_pfring.yml'
+    - import_tasks: 'roles/zeek/setup_zeek.yml'
+    #- import_tasks: 'roles/zeek/setup_rsyslog_client.yml'

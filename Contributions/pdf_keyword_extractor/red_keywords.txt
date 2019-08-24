@@ -1,0 +1,30 @@
+public scanning services, shodan, censys, zoomeye
+vulnerability scanning, vuln scanning, vulnerability scanner, vuln scanner, nexpose, nessus, openvas
+wmi, windows management instrumentation
+winrm, windows remote management, psremoting, powershell remoting, 5986, 5985
+ssh hijacking
+remote desktop, rdp
+exploit
+malicious stager, stager
+port scanning, port scanner
+service enumeration, service enum
+network sniffing, wireshark, tcpdump
+trusted third party
+reverse rdp tunnel
+domain spoofing
+arp spoofing
+vpn tunneling
+encoding
+compression
+udp flood
+tcp flood
+http flood
+poisoned torrents
+peer to peer, peer-to-peer, p2p
+IRC
+ICMP
+DNS
+webshell
+remote admin tools, teamviewer, anydesk, logmein
+defacement, deface
+exfiltration, exfil

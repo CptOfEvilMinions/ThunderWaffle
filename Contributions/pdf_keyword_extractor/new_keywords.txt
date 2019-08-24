@@ -1,0 +1,11 @@
+typo squatting,typo-squatting,doppelganger
+scanning,vulnerability scanning,service enumeration,vulnerability scans 
+credential harvesting
+web vulnerabilities,cross-site scripting,XSS,sql injection,vulnerable site
+weaponization,malicious macros,malicious flash code
+command and control, webshell
+hijacking, DNS hijacking
+network tools, scanners
+network artifacts
+scanning services, OSINT,shodan,censys,maltego
+third party,subsidiary organization

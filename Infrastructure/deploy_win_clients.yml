@@ -1,0 +1,5 @@
+- hosts: win_agents
+  tasks:
+    - include_vars: group_vars/win_dc
+    - include_vars: group_vars/agents
+    - import_tasks: 'roles/win_clients/join_win_client_to_domain.yml'
