@@ -1,6 +1,12 @@
 ####################################################################
 #  Set Primary DNS server
 ####################################################################
+- name: Disable Windows updates
+  win_service:
+    name: 'wuauserv'
+    state: stopped
+    start_mode: disabled
+    
 - win_dns_client:
     adapter_names: "*"
     ipv4_addresses:
