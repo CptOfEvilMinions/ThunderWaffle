@@ -141,7 +141,7 @@
 
 - name: Enable Bro logging in JSON format
   lineinfile:
-    path: '{{ zeek_base }}/share/bro/site/local.bro'
+    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
     line: '{{ item }}'
   with_items:
     - '# Enable Bro logging in JSON format'
@@ -150,7 +150,7 @@
 
 - name: Create scripts directory for custom Zeek scripts
   file:
-    path: '{{ zeek_base }}/share/bro/scripts'
+    path: '{{ zeek_base }}/share/zeek/scripts'
     state: directory
     owner: '{{ zeek_user }}'
     group: '{{ zeek_user }}'
@@ -164,7 +164,7 @@
     line: '{{ item }}'
   with_items:
     - '# Zeek file extraction'
-    - '@load policy/frameworks/files/extract-all-files.bro'
+    - '@load policy/frameworks/files/extract-all-files.zeek'
   when: zeek_file_extraction == True
 
 - name: Enable Zeek stats 
@@ -173,7 +173,7 @@
     line: '{{ item }}'
   with_items:
     - '# Zeek stats'
-    - '@load policy/misc/stats.bro'
+    - '@load policy/misc/stats.zeek'
   when: zeek_stats == True
 
 - name: Copy custom Zeek scripts
