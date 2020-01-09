@@ -1,4 +1,0 @@
-- hosts: win_clients
-  tasks:
-    - include_vars: group_vars/windows.yml
-    - import_tasks: 'roles/win_clients/join_win_client_to_domain.yml'

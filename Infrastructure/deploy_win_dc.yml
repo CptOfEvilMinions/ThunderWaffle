@@ -1,3 +1,0 @@
-- hosts: win_dc
-  tasks:
-    - import_tasks: 'roles/win_dc/setup_domain_controller.yml'

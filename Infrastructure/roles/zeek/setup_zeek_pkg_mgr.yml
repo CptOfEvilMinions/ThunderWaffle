@@ -1,0 +1,231 @@
+####################################################################
+# Install sofrware 
+####################################################################
+- name: Install software
+  apt:
+    name: ['python3', 'python3-pip']
+    state: latest
+
+####################################################################
+# Install Zeek package manager 
+####################################################################
+- name: Install Zeek package manager
+  pip:
+    name: zkg
+
+- name: Add another bin dir to system-wide $PATH.
+  copy:
+    dest: /etc/profile.d/zeek-path.sh
+    content: 'PATH=$PATH:{{ zeek_base }}/bin'
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Run zkg autoconfig
+  shell: 'zkg autoconfig'
+  environment:
+    PATH: '{{ ansible_env.PATH }}:{{ zeek_base }}/bin'
+
+- name: Copy Zkg config
+  template:
+    src: 'conf/zeek/pkg_mgr/.zkg'
+    dest: '/root/.zkg/config'
+    mode: 0400
+    owner: root
+    group: root
+
+- name: Append to Zeek local config
+  lineinfile:
+    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
+    line: '# Load packages from package manager'
+    create: yes
+
+- name: Append to Zeek local config
+  lineinfile:
+    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
+    line: '@load packages'
+    create: yes
+
+####################################################################
+# Install Zeek packages  
+####################################################################
+- name: Install Zeek packages
+  shell: 'zkg install --force {{ item }}'
+  environment:
+    PATH: '{{ ansible_env.PATH }}:{{ zeek_base }}/bin'
+  with_items:
+    - 'find_smbv1'
+    - 'CVE-2017-5638_struts'
+    - 'vnc-scanner'
+    - 'scan-NG'
+    - 'file-extraction'
+    - 'unknown-mime-type-discovery'
+    - 'ja3'
+    - 'hassh'
+    - 'sethhall/domain-tld'
+    - 'dns_axfr'
+    - 'dns-tunnels'
+    - 'zeek/corelight/bro-quic'
+    - 'credit-card-exposure'
+    - 'log-add-http-post-bodies'
+    - 'zeek-sniffpass'
+    - 'bro-large_uploads'
+    - 'conn-burst'
+    - 'ssn-exposure'
+    - 'bro_bitcoin'
+    - 'zeek/corelight/bro-community-id'
+    - 'bro-long-connections'
+    - 'ldap-analyzer'
+    - 'log-add-vlan-everywhere'
+
+# https://packages.zeek.org/packages/view/435bb7a9-8ed4-11e9-88be-0a645a3f3086
+- name: Replace file extractor plugin
+  lineinfile:
+    path: '{{ zeek_base }}/share/zeek/site/file-extraction/config.bro'
+    regex: '^@load ./plugins'
+    line: '@load ./plugins/extract-all-files.bro'
+
+# https://packages.zeek.org/packages/view/435bb7a9-8ed4-11e9-88be-0a645a3f3086
+- name: 'Add plugin to store file with SHA256 hash'
+  lineinfile:
+    path: '{{ zeek_base }}/share/zeek/site/file-extraction/config.bro'
+    line: '{{ item }}'
+    create: yes 
+  with_items:
+    - '# Uses file_state_remove to rename extracted files based on the sha256 checksum whenever it is available.'
+    - '@load ./plugins/store-files-by-sha256.bro'
+
+- name: Replace filepath for SMB for find_smbv1
+  lineinfile:
+    path: '{{ zeek_base }}/share/zeek/site/packages/./find_smbv1/__load__.bro'
+    regex: '^@load policy/protocol'
+    line: '@load base/protocols/smb'
+
+####################################################################
+# Install Zeek packages via URLs
+####################################################################
+- name: Install Zeek packages via URLs
+  shell: 'zkg install --force {{ item }}'
+  with_items:
+    - 'https://github.com/phirelight/bro-udp-scan'
+    - 'https://github.com/phirelight/bro-meterpreter-transfer'
+    - 'https://github.com/phirelight/bro-ms15-034-detect'
+    - 'https://github.com/phirelight/bro-tor'
+    - 'https://github.com/phirelight/bro-typosquat-email'
+    - 'https://github.com/phirelight/bro-icmp-variance'
+    - 'https://github.com/phirelight/bro-http-basic-auth-bruteforce'
+
+# https://packages.zeek.org/packages/view/42ad7d0b-8ed4-11e9-88be-0a645a3f3086
+- name: 'Configure ShellShock detection'
+  lineinfile:
+    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
+    line: '{{ item }}'
+    create: yes 
+  with_items:
+    - '# The number of apparent attacks a host must send for it to be detected as ShellShock::Scanner'
+    - 'const ShellShock::scan_threshold = 10 &redef;'
+    - 'const ShellShock::scan_detection_period = 10min &redef;'
+
+
+####################################################################
+# Download Zeek scripts via URLs
+####################################################################
+- name: Create scripts directory for custom Zeek scripts
+  file:
+    path: '{{ zeek_base }}/share/zeek/scripts'
+    state: directory
+    owner: '{{ zeek_user }}'
+    group: '{{ zeek_user }}'
+
+- name: Download Zeek top-dns script
+  get_url:
+    url: 'https://raw.githubusercontent.com/corelight/top-dns/master/scripts/main.bro'
+    dest: '{{ zeek_base }}/share/zeek/scripts/top-dns.bro'
+    mode: '0600'
+    owner: '{{ zeek_user }}'
+    group: '{{ zeek_user }}'
+
+- name: Add Zeek top-dns script to local.zeek
+  lineinfile: 
+    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
+    line: '@load scripts/top-dns.bro'
+    create: yes
+  with_items:
+    - '# Load top dns script'
+    - '@load scripts/top-dns.bro'
+
+# https://packages.zeek.org/packages/view/42d30bb5-8ed4-11e9-88be-0a645a3f3086
+- name: Append top-dns settings in local.zeek
+  lineinfile:
+    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
+    line: '{{ item }}'
+    create: yes
+  with_items:
+    - '# Record top 50 domains'
+    - 'redef TopDNS::top_k = 50;'
+    - '# TOP DNS recording interval'
+    - 'redef TopDNS::logging_interval = 1hr;'
+    - '# Collect credit card numbers'
+    - 'redef CreditCardExposure::redact_log = F;'
+
+
+- name: Download Bro scripts
+  get_url:
+    url: '{{ item }}'
+    dest: '{{ zeek_base }}/share/zeek/scripts/{{ item | basename }}'
+    mode: '0600'
+    owner: '{{ zeek_user }}'
+    group: '{{ zeek_user }}'
+  with_items:
+    - 'https://raw.githubusercontent.com/CriticalPathSecurity/bro-scripts/master/smb.bro'
+    - 'https://raw.githubusercontent.com/CriticalPathSecurity/bro-scripts/master/shodan.bro'
+    - 'https://raw.githubusercontent.com/fox-it/bro-scripts/master/smb-ransomware/smb-ransomware.bro'
+
+- name: Add Zeek scripts to local.zeek
+  lineinfile: 
+    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
+    line: "\n# Load {{ item | basename }}\n@load scripts/{{ item | basename }}"
+    create: yes
+  with_items:
+    - 'https://raw.githubusercontent.com/CriticalPathSecurity/bro-scripts/master/smb.bro'
+    - 'https://raw.githubusercontent.com/CriticalPathSecurity/bro-scripts/master/shodan.bro'
+    - 'https://raw.githubusercontent.com/fox-it/bro-scripts/master/smb-ransomware/smb-ransomware.bro'
+
+- name: 'Enable Heartbleed detection'
+  lineinfile:
+    path: '/opt/zeek/share/zeek/site/local.zeek'
+    regex: '^# @load policy/protocols/ssl/heart'
+    line: '@load policy/protocols/ssl/heartbleed'
+
+
+# - name: 'Download Crowd Strike dce-rpc detector'
+#   https://github.com/CrowdStrike/cs-bro/tree/master/bro-scripts/dce-rpc
+
+
+
+# - name: 'Download Zeek TOR detector'
+# https://github.com/phirelight/bro-scripts/tree/master/scripts/application/tor
+
+
+####################################################################
+# Convert Bro_init to Zeek_init
+####################################################################
+- name: 'Convert Bro_init to Zeek_init for all packages'
+  shell: "find /opt/zeek/share/zeek/site/packages -name '*.bro' -type f -print | xargs sed -i 's/event bro_init()/event zeek_init()/g'"
+
+- name: 'Convert Bro_init to Zeek_init for all scripts'
+  shell: "find /opt/zeek/share/zeek/scripts -name '*.bro' -type f -print | xargs sed -i 's/event bro_init()/event zeek_init()/g'"
+
+- name: 'Convert Bro_init to Zeek_init for all libs'
+  shell: "find /opt/zeek/lib/zeek/plugins/packages -name '*.bro' -type f -print | xargs sed -i 's/event bro_init()/event zeek_init()/g'"
+
+
+####################################################################
+#  Slack notification
+####################################################################
+- name: Send slack notification when done
+  slack:
+    token: "{{ slack_token }}"
+    msg: '{{ ansible_nodename }}:{{ ansible_default_ipv4.address }} - Finished setting up Zeek package manager on {{ ansible_nodename }}'
+    channel: "{{ slack_channel }}"
+  when: slack_token != None

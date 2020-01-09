@@ -1,6 +1,0 @@
-- hosts: caldera
-  become: yes
-  become_user: root
-  tasks:
-    - include_vars: group_vars/docker.yml
-    - import_tasks: roles/caldera/setup_caldera_container.yml

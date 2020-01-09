@@ -4,4 +4,8 @@
   tasks:
     - include_vars: 'group_vars/sec_tools.yml'
     #- import_tasks: 'roles/zeek/setup_pfring.yml'
-    - import_tasks: 'roles/zeek/setup_zeek.yml'
+    # import_tasks: 'roles/zeek/setup_zeek.yml'
+    - import_tasks: 'roles/zeek/setup_zeek_pkg_mgr.yml'
+    # Create splunk
+    #- import_tasks: 'roles/docker/setup_docker.yml'
+    #- import_tasks: 'roles/splunk/setup_splunk_container.yml'

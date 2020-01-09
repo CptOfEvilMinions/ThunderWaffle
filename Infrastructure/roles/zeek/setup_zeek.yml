@@ -156,51 +156,6 @@
     group: '{{ zeek_user }}'
 
 ####################################################################
-# Zeek scripts
-####################################################################
-- name: Enable Zeek file extraction
-  lineinfile:
-    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
-    line: '{{ item }}'
-  with_items:
-    - '# Zeek file extraction'
-    - '@load policy/frameworks/files/extract-all-files.zeek'
-  when: zeek_file_extraction == True
-
-- name: Enable Zeek stats 
-  lineinfile:
-    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
-    line: '{{ item }}'
-  with_items:
-    - '# Zeek stats'
-    - '@load policy/misc/stats.zeek'
-  when: zeek_stats == True
-
-- name: Copy custom Zeek scripts
-  template:
-    src: "{{ item }}"
-    dest: '{{ zeek_base }}/share/zeek/scripts/{{ item | basename }}'
-    owner: '{{ zeek_user }}'
-    group: '{{ zeek_user }}'
-  with_fileglob:
-    - 'conf/zeek/scripts/*'
-  when: zeek_custom_scripts == True
-
-- name: Add comment for custom scripts 
-  lineinfile:
-    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
-    line: '# Zeek custom scripts'
-  when: zeek_custom_scripts == True
-
-- name: Enable Zeek file extraction
-  lineinfile:
-    path: '{{ zeek_base }}/share/zeek/site/local.zeek'
-    line: '@load scripts/{{ item | basename }}'
-  with_fileglob:
-    - 'conf/zeek/scripts/*'
-  when: zeek_custom_scripts == True
-
-####################################################################
 # Zeek deploy
 ####################################################################
 - name: Run Bro deploy
@@ -210,6 +165,7 @@
   with_items:
     - 'install'
     - 'deploy'
+    - 'cron'
     - 'status'
 
 ####################################################################
