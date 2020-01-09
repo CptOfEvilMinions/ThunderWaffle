@@ -8,6 +8,10 @@ Constant innovation in attack methods presents a significant problem for the sec
 
 * [Thesis: Network-based APT profiler.pdf](https://drive.google.com/file/d/1d8cWFnwq1yY-IAXmPF7ly2bhTLcHN0mi/view?usp=sharing)
 
+## Thesis defense
+[![Thesis defense](https://img.youtube.com/vi/WIECBS32nLQ/0.jpg)](https://www.youtube.com/watch?v=WIECBS32nLQ)
+
+
 ## Setup infrastructure
 * [Setup Infrasructure](Infrastructure/README.md)
 
